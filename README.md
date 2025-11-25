@@ -1,4 +1,4 @@
-# ACCESS ISS Data Pool
+# Cryosphere Community Datapool
 
 Ice sheet modelling data product resource to support ACCESS / Australian ice sheet modelling community efforts.
 
