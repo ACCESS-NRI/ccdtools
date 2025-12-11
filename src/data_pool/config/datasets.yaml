@@ -40,6 +40,7 @@ datasets:
     extension: nc
     description: RACMO 2.3p2 dataset
     tags: ["Antarctica", "racmo"]
+    loader: prepro_racmo_time
   
   measures_annual_velocity:
     display_name: Measures Annual velocity

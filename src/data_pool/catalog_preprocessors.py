@@ -1,6 +1,8 @@
 from datetime import datetime
 import os
 import xarray as xr
+import pandas as pd
+import numpy as np
 
 def prepro_annual_time(ds):
     """
@@ -44,4 +46,20 @@ def prepro_annual_time(ds):
     time_da = xr.DataArray([datetime(year = year, month = 1, day = 1)], dims = 'time')
     ds = ds.expand_dims(time = time_da)
 
+    return ds
+
+def prepro_racmo_time(ds):
+    # Convert time to pandas datetime index
+    time_pd = pd.to_datetime(ds['time'].values)
+
+    # Round to the first day of the month
+    time_rounded = time_pd.to_period('M').to_timestamp('M')
+
+    # Assign back to dataset
+    ds = ds.assign_coords(time=('time', time_rounded))
+    return ds
+
+def prepro_searise_time(ds):
+    if 'time' in ds.coords:
+        ds = ds.drop_vars('time')
     return ds

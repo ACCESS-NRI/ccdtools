@@ -550,10 +550,10 @@ class DataCatalog:
         ## NOTE: open_mfdataset uses dask under the hood for lazy loading and handles single and mult-file cases
         return xr.open_mfdataset(
             paths,
-            combine='nested',
-            concat_dim='time',
+            combine='by_coords',
             preprocess=preprocess_func,
             chunks=None,
             engine='netcdf4',
+            compat='override',
             **xr_kwargs
         )
