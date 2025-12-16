@@ -186,6 +186,17 @@ datasets:
     extension: nc
     loader: measures_velocity
 
+  measures_insar_based_ice_velocity_maps_of_central_antarctica:
+    path: /g/data/av17/access-nri/cryosphere-data-pool/ice_velocity/measures_insar_based_ice_velocity_maps_of_central_antarctica
+    display_name: InSAR-based Ice Velocity Maps of Central Antarctica
+    description: Ice velocity maps for central Antarctica derived from Interferometric Synthetic Aperture Radar (InSAR) data.
+    tags:
+      - antarctica
+      - ice velocity
+      - insar
+    extension: nc
+    loader: measures_velocity
+
   measures_insar_based_antarctica_ice_velocity_map:
     path: /g/data/av17/access-nri/cryosphere-data-pool/ice_velocity/measures_insar_based_antarctica_ice_velocity_map
     display_name: InSAR-based Antarctica Ice Velocity Map
@@ -195,3 +206,23 @@ datasets:
       - ice velocity
       - insar
     extension: nc
+
+  measures_insar_based_ice_velocity_of_the_amundsen_sea_embayment:
+    path: /g/data/av17/access-nri/cryosphere-data-pool/ice_velocity/measures_insar_based_ice_velocity_of_the_amundsen_sea_embayment
+    display_name: InSAR-based Ice Velocity of the Amundsen Sea Embayment
+    description: Ice velocity data for the Amundsen Sea Embayment region of Antarctica derived from Interferometric Synthetic Aperture Radar (InSAR) measurements.
+    tags:
+      - antarctica
+      - ice velocity
+      - insar
+    extension: nc
+
+  measures_phase_based_antarctica_ice_velocity_map:
+    path: /g/data/av17/access-nri/cryosphere-data-pool/ice_velocity/measures_phase_based_antarctica_ice_velocity_map
+    display_name: Phase-based Antarctica Ice Velocity Map
+    description: High-resolution ice velocity map for Antarctica derived from phase-based measurements.
+    tags:
+      - antarctica
+      - ice velocity
+    extension: nc
+  
