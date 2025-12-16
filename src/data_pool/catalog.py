@@ -70,6 +70,55 @@ class DataCatalog:
             if p.is_dir()
         ])
 
+    def _get_metadata(self, meta, version, key, default = None):
+        """
+        Resolve metadata value with optional per-version overrides.
+        
+        meta[key] can be a scalar, or a dict keyed by version.
+        """
+
+        value = meta.get(key, default)
+
+        if isinstance(value, dict):
+            return value.get(version, default)
+        else:
+            return value
+
+    def _resolve_metadata(self, meta, subds_meta, version, key, default = None):
+        """
+        Resolve metadata value with subdataset and per-version overrides.
+        
+        Priority:
+        1. subds_meta[key] (can be scalar or dict by version)
+        2. meta[key] (can be scalar or dict by version)
+        3. default
+        """
+
+        # First check subdataset-level metadata
+        subds_value = self._get_metadata(subds_meta, version, key, None)
+        if subds_value is not None:
+            return subds_value
+        
+        # Fallback to dataset-level metadata
+        ds_value = self._get_metadata(meta, version, key, None)
+        if ds_value is not None:
+            return ds_value
+
+        return default
+
+    def _normalise_list(self, value):
+        """
+        Ensure the value is a list. If it's a scalar, wrap it in a list.
+        If it's None, return an empty list.
+        """
+
+        if value is None:
+            return []
+        elif isinstance(value, list):
+            return value
+        else:
+            return [value]
+
     def _list_datasets(self):
         """
         Return a flattened DataFrame listing datasets, versions, subdatasets.
@@ -113,12 +162,15 @@ class DataCatalog:
                     # Iterate over subdatasets
                     for subds_name, subds_meta in subds_dict.items():
                         
-                        # Extract subdataset-specific metadata
-                        subpath = subds_meta.get("subpath", "")
-                        extension = subds_meta.get("extension")
-                        skip_lines = subds_meta.get("skip_lines", 0)
-                        no_data_value = subds_meta.get("no_data_value", None)
-                        ignore_dirs = subds_meta.get("ignore_dirs", None)
+                        # Extract subdataset-specific metadata (or dataset-level fallback)
+                        subpath = self._resolve_metadata(meta, subds_meta, version, "subpath")
+                        extension = self._resolve_metadata(meta, subds_meta, version, "extension")
+                        skip_lines = self._resolve_metadata(meta, subds_meta, version, "skip_lines", 0)
+                        no_data_value = self._resolve_metadata(meta, subds_meta, version, "no_data_value", None)
+                        ignore_dirs = self._resolve_metadata(meta, subds_meta, version, "ignore_dirs", None)
+                        
+                        # Normalise lists as needed
+                        ignore_dirs = self._normalise_list(ignore_dirs)
 
                         # Error checks
                         if not subpath:
@@ -148,18 +200,21 @@ class DataCatalog:
             # VERSIONED DATASETS (no subdatasets)
             else:
                 
-                # Extract dataset-level metadata
-                extension = meta.get("extension")
-                skip_lines = meta.get("skip_lines", 0)
-                no_data_value = meta.get("no_data_value", None)
-                ignore_dirs = meta.get("ignore_dirs", None)
-
-                # Error check
-                if not extension:
-                    raise ValueError(f"Extension must be specified for dataset '{dataset_name}'. This should be defined in the YAML config.")                       
-
                 # Iterate over versions
                 for version in versions:
+                    
+                    # Extract dataset-level metadata (version-specific if applicable)
+                    extension = self._get_metadata(meta, version, "extension")
+                    skip_lines = self._get_metadata(meta, version, "skip_lines", 0)
+                    no_data_value = self._get_metadata(meta, version, "no_data_value", None)
+                    ignore_dirs = self._get_metadata(meta, version, "ignore_dirs", None)
+
+                    # Normalise lists as needed
+                    ignore_dirs = self._normalise_list(ignore_dirs)
+
+                    # Error check
+                    if not extension:
+                        raise ValueError(f"Extension must be specified for dataset '{dataset_name}'. This should be defined in the YAML config.")  
 
                     # Construct path to version
                     version_path = base_path / version
@@ -252,11 +307,14 @@ class DataCatalog:
         # ------------------------------
         # CSV -> Pandas
         if ext == "csv":
+
+            # Get kwargs (or set defaults)
+            low_memory = kwargs.pop("low_memory", False)
             
             # Load each CSV into a DataFrame and append to data_list
             data_list = []
             for f in files:
-                data = pd.read_csv(f, skiprows = skip_lines)
+                data = pd.read_csv(f, skiprows = skip_lines, low_memory = low_memory, **kwargs)
                 data_list.append(data)
             
             # Concatenate all CSVs into a single DataFrame
@@ -313,7 +371,12 @@ class DataCatalog:
         # NetCDF -> xarray
         if ext in ("nc"):
 
-            output = xr.open_mfdataset(files, combine = "by_coords")
+            # Get kwargs (or set defaults)
+            combine = kwargs.pop("combine", "by_coords")
+
+            output = xr.open_mfdataset(files,
+                                       combine = combine,
+                                       **kwargs)
 
             return output
 
@@ -372,12 +435,7 @@ class DataCatalog:
                 raise KeyError(f"No dataset entry found for: {dataset}, {version} ({subdataset})")
 
         # Raise error if multiple entries found (should be unique).
-        # geopackages are a single file, so only one match should exist
-        # shapefiles consist of multiple files, so up to 4 matches can exist (.shp, .shx, .dbf, .prj)
-        if len(subset) > 1 and all(df.extension == 'gpkg'):
-            raise ValueError("Multiple entries matched; dataset table should have unique rows.")
-        
-        if len(subset) > 4 and all(df.extension == 'shp'):
+        if len(subset) > 1:
             raise ValueError("Multiple entries matched; dataset table should have unique rows.")
 
         # Load dataset from the single matching row

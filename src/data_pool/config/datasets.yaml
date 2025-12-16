@@ -122,38 +122,55 @@ datasets:
       v1:
         coastline:
           subpath: Coastline_Antarctica
-          extension: shp
         grounding_line:
           subpath: GroundingLine_Antarctica
-          extension: shp
         ice_boundaries:
           subpath: IceBoundaries_Antarctica
-          extension: shp
         ice_shelf:
           subpath: IceShelf_Antarctica
-          extension: shp
         mask:
           subpath: Mask_Antarctica
           extension: tif
       v2:
         basins:
           subpath: Basins_Antarctica
-          extension: shp
         basins_imbie:
           subpath: Basins_IMBIE_Antarctica
-          extension: shp
         coastline:
           subpath: Coastline_Antarctica
-          extension: shp
         grounding_line:
           subpath: GroundingLine_Antarctica
-          extension: shp
         ice_boundaries:
           subpath: IceBoundaries_Antarctica
-          extension: shp
         ice_shelf:
           subpath: IceShelf_Antarctica
-          extension: shp
         mask:
           subpath: Mask_Antarctica
           extension: tif
+
+  measures_antarctic_grounding_line:
+    display_name: Antarctic Grounding Line from Differential Satellite Radar Interferometry
+    path: /g/data/av17/access-nri/cryosphere-data-pool/geospatial/measures_antarctic_grounding_line_from_differential_satellite_radar_interferometry
+    description: Grounding line positions for Antarctica derived from differential satellite radar interferometry.
+    tags:
+      - antarctica
+      - grounding line
+    extension:
+      v1: csv
+      v2: shp
+
+  # BASAL FORCING DATASETS
+  antarctic_geothermal_heat_flow_model_aq1:
+    display_name: Antarctic Geothermal Heat Flow Model AQ1
+    path: /g/data/av17/access-nri/cryosphere-data-pool/basal_forcing/antarctic_geothermal_heat_flow_model_aq1
+    description: Geothermal heat flow model for Antarctica (AQ1) providing estimates of basal heat flux beneath the Antarctic ice sheet.
+    tags:
+      - antarctica
+      - geothermal heat flow
+    extension: nc
+    subdatasets:
+      v1:
+        20km:
+          subpath: 20km
+        50km:
+          subpath: 50km
