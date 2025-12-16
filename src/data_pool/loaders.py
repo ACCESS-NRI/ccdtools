@@ -11,10 +11,10 @@ import re
 def default(self, row, **kwargs):
 
     # Extract parameters from row
-    path, ext, skip_lines, no_data, ignore_dirs = self._extract_row_params(row)
+    path, ext, skip_lines, no_data, ignore_dirs, ignore_files = self._extract_row_params(row)
         
     # Find files
-    files = self._recursive_find_files(path, ext, ignore_dirs = ignore_dirs)
+    files = self._recursive_find_files(path, ext, ignore_dirs = ignore_dirs, ignore_files = ignore_files)
 
     # If no files found, raise error
     if not files:
@@ -170,10 +170,10 @@ def measures_velocity(self, row, **kwargs):
         return ds.expand_dims(time = time_da)
 
     # Extract parameters from row
-    path, ext, skip_lines, no_data, ignore_dirs = self._extract_row_params(row)
+    path, ext, skip_lines, no_data, ignore_dirs, ignore_files = self._extract_row_params(row)
         
     # Find files
-    files = self._recursive_find_files(path, ext, ignore_dirs = ignore_dirs)
+    files = self._recursive_find_files(path, ext, ignore_dirs = ignore_dirs, ignore_files = ignore_files)
 
     # If no files found, raise error
     if not files:

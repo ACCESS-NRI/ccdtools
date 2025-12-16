@@ -226,3 +226,20 @@ datasets:
       - ice velocity
     extension: nc
   
+  measures_its_live_regional_glacier_and_ice_sheet_surface_velocities:
+    path: /g/data/av17/access-nri/cryosphere-data-pool/ice_velocity/measures_its_live_regional_glacier_and_ice_sheet_surface_velocities
+    display_name: ITS_LIVE Regional Glacier and Ice Sheet Surface Velocities
+    description: ITS_LIVE regional glacier and ice sheet surface velocities for Antarctica and Greenland.
+    tags:
+      - antarctica
+      - greenland
+      - ice velocity
+    extension: nc
+    loader: measures_velocity
+    subdatasets:
+      v1:
+        ANT:
+          subpath: ANT
+          ignore_files:
+            - ANT_G0120_0000.nc
+            - ANT_G0240_0000.nc

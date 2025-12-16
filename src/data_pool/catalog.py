@@ -170,10 +170,12 @@ class DataCatalog:
                         skip_lines = self._resolve_metadata(meta, subds_meta, version, "skip_lines", 0)
                         no_data_value = self._resolve_metadata(meta, subds_meta, version, "no_data_value", None)
                         ignore_dirs = self._resolve_metadata(meta, subds_meta, version, "ignore_dirs", None)
+                        ignore_files = self._resolve_metadata(meta, subds_meta, version, "ignore_files", None)
                         loader = self._resolve_metadata(meta, subds_meta, version, "loader", "default")
                         
                         # Normalise lists as needed
                         ignore_dirs = self._normalise_list(ignore_dirs)
+                        ignore_files = self._normalise_list(ignore_files)
 
                         # Error checks
                         if not subpath:
@@ -198,6 +200,7 @@ class DataCatalog:
                             "skip_lines": skip_lines,
                             "no_data_value": no_data_value,
                             "ignore_dirs": ignore_dirs,
+                            "ignore_files": ignore_files,
                             "loader": loader,
                         })
 
@@ -212,10 +215,12 @@ class DataCatalog:
                     skip_lines = self._get_metadata(meta, version, "skip_lines", 0)
                     no_data_value = self._get_metadata(meta, version, "no_data_value", None)
                     ignore_dirs = self._get_metadata(meta, version, "ignore_dirs", None)
+                    ignore_files = self._get_metadata(meta, version, "ignore_files", None)
                     loader = self._get_metadata(meta, version, "loader", "default")
 
                     # Normalise lists as needed
                     ignore_dirs = self._normalise_list(ignore_dirs)
+                    ignore_files = self._normalise_list(ignore_files)
 
                     # Error check
                     if not extension:
@@ -238,13 +243,14 @@ class DataCatalog:
                         "skip_lines": skip_lines,
                         "no_data_value": no_data_value,
                         "ignore_dirs": ignore_dirs,
+                        "ignore_files": ignore_files,
                         "loader": loader,
                     })
 
         return pd.DataFrame(records)
 
 
-    def _recursive_find_files(self, root, extension, ignore_dirs = None):
+    def _recursive_find_files(self, root, extension, ignore_dirs = None, ignore_files = None):
         """
         Recursively find files with given extension under root directory,
         excluding any whose path contains one of the ignore_dirs substrings.
@@ -274,6 +280,9 @@ class DataCatalog:
         if ignore_dirs is None:
             ignore_dirs = []
 
+        if ignore_files is None:
+            ignore_files = []
+
         # Recursively find all files with the given extension
         files = root.rglob(f"*.{ext}")
 
@@ -281,6 +290,12 @@ class DataCatalog:
         filtered = []
         for f in files:
             reject = any(bad in f.as_posix() for bad in ignore_dirs)
+            if not reject:
+                filtered.append(f)
+        
+        # Further filter out any files whose names contain one of the ignored file name substrings
+        for f in filtered:
+            reject = any(bad in f.name for bad in ignore_files)
             if not reject:
                 filtered.append(f)
 
@@ -312,8 +327,9 @@ class DataCatalog:
         skip_lines = row.get("skip_lines", 0)
         no_data = row.get("no_data_value", None)
         ignore_dirs = row.get("ignore_dirs", None)
+        ignore_files = row.get("ignore_files", None)
     
-        return path, ext, skip_lines, no_data, ignore_dirs
+        return path, ext, skip_lines, no_data, ignore_dirs, ignore_files
 
     def _load_dataset_row(self, row, **kwargs):
         """
