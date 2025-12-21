@@ -5,8 +5,12 @@ import xarray as xr
 import geopandas as gpd 
 import numpy as np
 import rioxarray as rxr
+import warnings
 
 from . import loaders
+
+# Ensure UserWarnings are always shown
+warnings.simplefilter('always', UserWarning)
 
 class DataCatalog:
     """
@@ -399,7 +403,7 @@ class DataCatalog:
 
         return loader_func(self, row, **kwargs)
 
-    def load_dataset(self, dataset, version, subdataset = None, **kwargs):
+    def load_dataset(self, dataset, version = None, subdataset = None, **kwargs):
         """
         Load any dataset by name/version/subdataset with optional directory filtering.
 
@@ -430,33 +434,58 @@ class DataCatalog:
         # Get dataset Dataframe
         df = self.datasets
 
-        # If no subdataset specified, filter by dataset and version only
-        if subdataset is None:
-            subset = df[(df.dataset == dataset) &
-                        (df.version == version)]
+        # If version not specified, get latest version
+        if version is None:
+            version = self._get_latest_version(dataset)
 
-            # Raise error if no matching entry found
-            if subset.empty:
-                raise KeyError(f"No dataset entry found for: {dataset}, {version}")
-        
-        # If subdataset specified, filter by all three criteria
-        else:
-            subset = df[
-                (df.dataset == dataset) &
-                (df.version == version) &
-                (df.subdataset == subdataset)
-            ]
+        # Filter by dataset and version
+        subset = df[(df.dataset == dataset) &
+                    (df.version == version)]
+
+        # Raise error if no matching entry found
+        if subset.empty:
+            raise KeyError(f"No dataset entry found for:\n"
+                            f"'dataset': {dataset}\n"
+                            f"'version': {version}")
+
+
+        # If subdataset specified, filter by subdataset next
+        if subdataset is not None:
+
+            # Check if subdataset exists
+            if subset.subdataset.isna().all():
+                raise TypeError(f"'subdataset' is not applicable for dataset '{dataset}'."
+                                " This dataset does not define any subdatasets.")
             
-            # Raise error if no matching entry found
-            if subset.empty:
-                raise KeyError(f"No dataset entry found for: {dataset}, {version} ({subdataset})")
+            # Get available subdatasets
+            available_subdatasets = self.available_subdatasets(dataset, version)
 
+            # Raise error if specified subdataset not found
+            if subdataset not in available_subdatasets:
+                raise KeyError(f"Subdataset '{subdataset}' not found for dataset '{dataset}', version '{version}'.\n"
+                               f"Available subdatasets: {available_subdatasets}")
+
+            # Filter by subdataset
+            subset = subset[subset.subdataset == subdataset]
+            
         # Raise error if multiple entries found (should be unique).
         if len(subset) > 1:
-            raise ValueError("Multiple entries matched; dataset table should have unique rows.")
+            # If multiple subdatasets exist, prompt user to specify one
+            if subset.subdataset.unique().size > 1:
+                raise ValueError(f"Multiple subdatasets found for dataset '{dataset}', version '{version}'.\n"
+                                 f"Available subdatasets: {self.available_subdatasets(dataset, version)}\n"
+                                 "Please specify a subdataset to load.")
+            else:
+                # Generic error for multiple matches
+                raise ValueError("Multiple entries matched; dataset table should have unique rows. Refine your query.")
 
         # Load dataset from the single matching row
         row = subset.iloc[0]
+
+        # Check any additional keywords against the row
+        self._check_keywords(row, kwargs)
+        
+        # Load dataset using the appropriate loader
         data = self._load_dataset_row(row, **kwargs)
         
         return data
@@ -496,3 +525,268 @@ class DataCatalog:
         
         # Return filtered DataFrame
         return self.datasets[mask]
+
+    def available_versions(self, dataset):
+        """
+        Show available versions for a given dataset.
+
+        Parameters
+        ----------
+        dataset : str
+            Name of the dataset.
+        
+        Returns
+        -------
+        list of str
+            List of available version names.
+        """
+
+        # Get dataset Dataframe
+        df = self.datasets
+
+        # Get versions
+        versions = df[df.dataset == dataset]["version"].unique().tolist()
+
+        if versions == []:
+            raise ValueError(f"No versions found for dataset '{dataset}'.")
+
+        return versions
+
+    def _get_latest_version(self, dataset):
+        """
+        Get the latest version for a given dataset based on alphanumeric sorting.
+
+        Parameters
+        ----------
+        dataset : str
+            Name of the dataset.
+        
+        Returns
+        -------
+        str
+            Latest version name.
+        """
+
+        # Get available versions
+        versions = self.available_versions(dataset)
+        
+        # Raise error if no versions found
+        if not versions:
+            raise ValueError(f"No versions found for dataset '{dataset}'. All datasets must have at least one version.")
+
+        # Return the latest version (sorted alphanumerically)
+        return sorted(versions)[-1]
+
+    def available_subdatasets(self, dataset, version = None):
+        """
+        Show available subdatasets for a given dataset and version.
+
+        Parameters
+        ----------
+        dataset : str
+            Name of the dataset.
+        version : str
+            Version of the dataset.
+        
+        Returns
+        -------
+        list of str
+            List of available subdataset names.
+        """
+        
+        # Get dataset Dataframe
+        df = self.datasets
+
+        # If version not specified, get latest version
+        if version is None:
+            version = self._get_latest_version(dataset)
+
+        # Get subdatasets
+        subdatasets = df[
+            (df.dataset == dataset) &
+            (df.version == version) &
+            (df.subdataset.notnull())
+        ]["subdataset"].unique().tolist()
+
+        if subdatasets == []:
+            warnings.warn('No subdatasets defined for this dataset.')
+            return
+
+        return subdatasets
+
+    def available_resolutions(self, dataset, version = None, subdataset = None):
+        """
+        Show available resolutions for a given dataset/version/subdataset.
+
+        Parameters
+        ----------
+        dataset : str
+            Name of the dataset.
+        version : str, optional
+            Version of the dataset.
+        subdataset : str, optional
+            Name of the subdataset.
+        
+        Returns
+        -------
+        list of str
+            List of available resolutions.
+        """
+
+        # Get dataset Dataframe
+        df = self.datasets
+
+        # If version not specified, get latest version
+        if version is None:
+            version = self._get_latest_version(dataset)
+
+        # Filter by dataset/version
+        subset = df[
+            (df.dataset == dataset) &
+            (df.version == version)
+        ]
+
+        # Get subdataset if specified
+        if subdataset is not None:
+            subset = subset[subset.subdataset == subdataset]
+
+        # Raise error if no matching entry found
+        if subset.empty:
+            raise KeyError(f"No dataset entry found for: {dataset}, {version} ({subdataset})")
+
+        # Get resolutions from the single matching row
+        row = subset.iloc[0]
+        resolutions = row.get("resolutions", None)
+        
+        # Warn if no resolutions defined
+        if resolutions is None:
+            warnings.warn('No resolutions defined for this dataset.')
+            return
+        
+        return resolutions
+
+    def _check_keywords(self, row, kwargs):
+        """
+        Check if all provided keywords match the dataset row.
+        Used for filtering datasets based on arbitrary metadata.
+        """
+
+        CATALOG_KEYWORDS = {
+            "resolution",
+            "composite",
+            "subdataset"
+        }
+
+        used = set(kwargs.keys()) & CATALOG_KEYWORDS
+
+        # Check resolution
+        if "resolution" in used:
+            if row.resolutions is None:
+                raise TypeError(f"'resolution' is not applicable for dataset '{row.dataset}'."
+                                " This dataset does not define any resolution metadata.")
+        
+        if "composite" in used:
+            if not row.composite_patterns:
+                raise TypeError(f"'composite' is not applicable for dataset '{row.dataset}'."
+                                " This dataset does not define any composite patterns.")
+
+    def help(self, dataset = None, version = None):
+        """
+        Describe available datasets and their supported options without loading data.
+
+        Parameters
+        ----------
+        dataset : str, optional
+            Dataset name to describe.
+
+        version : str, optional
+            Dataset version to describe.
+
+        Returns
+        -------
+        None
+            Prints information about datasets, versions, subdatasets, and capabilities.
+        """
+
+        # Get dataset Dataframe
+        df = self.datasets
+
+        # 1. If no dataset specified, simply list datasets
+        # ------------------------------------------------------------------
+        if dataset is None:
+            datasets = sorted(df.dataset.unique())
+            print("Available datasets:")
+            for d in datasets:
+                print(f"  - {d}")
+            return
+
+        # 2. Dataset-level help - list versions
+        # ------------------------------------------------------------------
+        subset = df[df.dataset == dataset]
+
+        if subset.empty:
+            raise KeyError(f"Unknown dataset '{dataset}'")
+
+        print(f"Dataset: {dataset}")
+
+        versions = sorted(subset.version.unique())
+        print("\nAvailable versions:")
+        for v in versions:
+            print(f"  - {v}")
+
+        # If no version specified, stop here
+        if version is None:
+            print("\nTip:")
+            print("  Use catalog.help(dataset=..., version=...) for more details.")
+            return
+
+        # 3. Version-level help
+        # ------------------------------------------------------------------
+        subset = subset[subset.version == version]
+
+        if subset.empty:
+            raise KeyError(
+                f"Version '{version}' not found for dataset '{dataset}'. "
+                f"Available versions: {versions}"
+            )
+
+        print(f"\nVersion: {version}")
+
+        # 4. Subdatasets
+        # ------------------------------------------------------------------
+        # If subdatasets exist, list them
+        if not subset.subdataset.isna().all():
+            subdatasets = sorted(subset.subdataset.dropna().unique())
+            print("\nAvailable subdatasets:")
+            for s in subdatasets:
+                print(f"  - {s}")
+        else:
+            print("\nAvailable subdatasets: none")
+
+        # 5. Capabilities (based on row metadata)
+        # ------------------------------------------------------------------
+        row = subset.iloc[0]
+
+        print("\nSupported catalog keywords:")
+        print(f"  - subdataset : {'yes' if not subset.subdataset.isna().all() else 'no'}")
+        print(f"  - resolution : {'yes' if row.resolutions is not None else 'no'}")
+        print(f"  - composite  : {'yes' if bool(row.composite_patterns) else 'no'}")
+
+        # 6. Example usage
+        # ------------------------------------------------------------------
+        print("\nExample usage:")
+
+        example = f"catalog.load_dataset('{dataset}', version = '{version}'"
+
+        if not subset.subdataset.isna().all():
+            example += ", subdataset = '...'"
+
+        if row.resolutions is not None:
+            example += ", resolution = '...'"
+
+        if row.composite_patterns:
+            example += ", composite = True"
+
+        example += ")"
+
+        print(f"  {example}")

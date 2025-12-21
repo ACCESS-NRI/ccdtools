@@ -346,7 +346,7 @@ datasets:
       - climate data
       - racmo
     extension: nc
-    loader: racmo_24
+    loader: racmo
     ignore_files:
     # Ignore static mask files that do not integrate with variable files well
       v1:
