@@ -8,8 +8,8 @@ jobs:
   publish_python_package:
     uses: access-nri/actions/.github/workflows/publish-python-package.yml@main
     with:
-      publish_pypi: true
-      publish_conda: true
+      pypi-package: true
+      conda-package: true
     secrets: inherit
     permissions:
       actions: write
