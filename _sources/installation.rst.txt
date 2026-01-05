@@ -54,6 +54,7 @@ You can also install the latest development version directly from the GitHub rep
 Verifying the Installation
 --------------------------
 After installation, you can verify that access-cryosphere-data-pool is installed correctly by running the following commands in a Python shell:
+
 .. code-block:: python
 
    import datapool
