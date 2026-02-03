@@ -30,6 +30,9 @@ dependencies = [
     "PyYAML"
 ]
 
+[tool.setuptools.package-data]
+datapool = ["config/*.yml", "config/*.yaml"]
+
 [project.urls]
 Homepage = "https://github.com/ACCESS-NRI/access-cryosphere-data-pool"
 Repository = "https://github.com/ACCESS-NRI/access-cryosphere-data-pool"

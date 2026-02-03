@@ -1,5 +1,6 @@
 import yaml
 from pathlib import Path
+from importlib import resources
 import pandas as pd
 import warnings
 
@@ -26,8 +27,21 @@ class DataCatalog:
     """
 
     # Initialize DataPool with key fields
-    def __init__(self, yaml_path):
-        self.config_file = yaml_path
+    def __init__(self, yaml_path = None):
+        if yaml_path is None:
+            with resources.as_file(
+                resources.files("datapool").joinpath("config/datasets.yaml")
+            ) as p:
+                self.config_file = Path(p)
+        else:
+            self.config_file = Path(yaml_path)
+            if not self.config_file.exists():
+                raise FileNotFoundError(
+                    f"DataCatalog YAML file not found:"
+                    f"  '{self.config_file}'\n\n"
+                    f"Provide a valid path, or omit the argument to use the "
+                    f"default packaged catalog."
+                )
         self.config = self._load_yaml(self.config_file)
         self.datasets = self._list_datasets()
 
