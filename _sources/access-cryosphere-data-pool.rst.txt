@@ -18,9 +18,9 @@ DataCatalog
 
 .. _data-discovery:
 
-Data discovery functions
+Data discovery
 -------------------
-There are various functions to explore the DataCatalog:
+There are various methods to explore the DataCatalog:
 
 .. autosummary::
    :toctree: api
@@ -36,7 +36,7 @@ There are various functions to explore the DataCatalog:
 
 Loading data
 -------------------
-Datasets are loaded using the ``load_dataset()`` function.
+Datasets are loaded using the ``load_dataset()`` method.
 
 .. autosummary::
    :toctree: api
@@ -44,11 +44,7 @@ Datasets are loaded using the ``load_dataset()`` function.
 
    datapool.catalog.DataCatalog.load_dataset
 
-.. _data-loaders:
-
-Data loaders
--------------------
-Under-the-hood, datasets are loaded using custom ``loaders``.
+Under-the-hood, datasets are loaded using custom ``loaders``. 
 
 .. autosummary::
    :toctree: api

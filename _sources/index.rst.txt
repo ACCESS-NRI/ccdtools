@@ -24,10 +24,11 @@ Contributing
 We welcome contributions from the community! If you're interested in contributing to access-cryosphere-data-pool development or documentation, please check out our `contributing guidelines <contributing>`_.
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Contents:
 
    overview
    installation
+   tutorials
    access-cryosphere-data-pool
    contributing
