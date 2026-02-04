@@ -34,10 +34,10 @@ myst_enable_extensions = [
     "html_admonition",
     "html_image"
 ]
-nv_execution_mode = "auto"
-nb_kernel_rgx_aliases = {
-    r"conda-env-.*": "python3",
-}
+
+# Do not execute notebooks -- the default datasets.yaml points to paths on gadi. These paths do not exist on GitHub runners, so the datapool fails.
+# Selet/relevant tutorial notebook output should be retained/trimmed manually before committing. Notebooks will be displayed "as-is".
+nb_execution_mode = "off"
 
 # Register suffixes
 source_suffix = {
