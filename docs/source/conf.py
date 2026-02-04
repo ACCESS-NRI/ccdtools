@@ -34,6 +34,10 @@ myst_enable_extensions = [
     "html_admonition",
     "html_image"
 ]
+nv_execution_mode = "auto"
+nb_kernel_rgx_aliases = {
+    r"conda-env-.*": "python3",
+}
 
 # Register suffixes
 source_suffix = {
