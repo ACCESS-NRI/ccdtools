@@ -74,6 +74,27 @@ class DataCatalog:
         self.config = self._load_yaml(self.config_file)
         self.datasets = self._list_datasets()
 
+    def _repr_html_(self):
+        df = self.datasets
+
+        summary = f"""
+        <ul>
+        <li><b>Datasets:</b> {df.dataset.nunique()}</li>
+        <li><b>Rows:</b> {len(df)}</li>
+        </ul>
+        """
+
+        table_html = df.to_html(index = False, escape = False)
+
+        return f"""
+        <div>
+        {summary}
+        <div style="style='max-height: 300px; overflow: auto">
+            {table_html}
+        </div>
+        </div>
+        """
+
     # Load YAML configuration
     def _load_yaml(self, path):
         """
