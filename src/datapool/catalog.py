@@ -24,12 +24,21 @@ class DataCatalog:
         Parsed YAML configuration content.
     datasets : :class:`pandas.DataFrame`
         DataFrame listing all datasets, versions, and subdatasets with their metadata.
+    _df_summary : :class:`pandas.DataFrame`
+        Subset or summary of the datasets DataFrame, used for display purposes
+        (e.g., in `_repr_html_`). This may reflect filtered search results
+        or the full catalog if no filtering has been applied. By default, it returns
+        self.datasets.
     
     Examples
     --------
     >>> catalog = DataCatalog()
     >>> catalog.help()
     >>> data = catalog.load_dataset('dataset_name', version='v1')
+    
+    # Perform a search and view summary
+    >>> filtered_catalog = catalog.search('temperature')
+    >>> filtered_catalog
     """
 
     # Initialize DataPool with key fields
@@ -73,25 +82,77 @@ class DataCatalog:
                 )
         self.config = self._load_yaml(self.config_file)
         self.datasets = self._list_datasets()
-
+        self._df_summary = self.datasets
+    
     def _repr_html_(self):
-        df = self.datasets
-
-        summary = f"""
-        <ul>
-        <li><b>Datasets:</b> {df.dataset.nunique()}</li>
-        <li><b>Rows:</b> {len(df)}</li>
-        </ul>
         """
-
-        table_html = df.to_html(index = False, escape = False)
-
+        Return a custom HTML representation of the DataCatalog for rich display in notebooks.
+        
+        This method generates an HTML summary including:
+          - A title for the catalog
+          - Number of unique datasets
+          - Total number of rows
+          - A horizontal rule under the title for visual separation
+          - A scrollable table of the catalog contents
+        
+        The table is rendered from the `_df_summary` attribute, which may represent
+        the full dataset catalog or a filtered subset (e.g., after a search).
+        
+        Empty catalogs are handled gracefully, displaying a message when no datasets are found.
+        
+        Returns
+        -------
+        str
+            HTML string suitable for rendering in Jupyter notebooks or other rich displays.
+        
+        Notes
+        -----
+        The scrollable table div has a fixed maximum height and borders for readability.
+        """
+        
+        # Title
+        title = "ACCESS Cryosphere Data Catalogue"
+    
+        # Number of datasets and rows
+        ndatasets = self._df_summary['dataset'].nunique() if not self._df_summary.empty else 0
+        nrows = len(self._df_summary)
+    
+        # Handle empty catalog gracefully
+        if nrows == 0:
+            summary_html = f"""
+            <div style="margin-bottom: 0.75em;">
+                <strong>{title}</strong>
+                <hr style="border: 1px solid #ccc; margin: 0.5em 0;">
+                Number of datasets: {ndatasets}<br>
+                Rows: {nrows}<br>
+                <em>No datasets found.</em>
+            </div>
+            """
+            return f"<div>{summary_html}</div>"
+    
+        # Otherwise, render table
+        table_html = self._df_summary._repr_html_()
+    
+        summary_html = f"""
+        <div style="margin-bottom: 0.75em;">
+            <strong>{title}</strong>
+            <hr style="border: 1px solid #ccc; margin: 0.5em 0;">
+            Number of datasets: {ndatasets}<br>
+            Rows: {nrows}
+        </div>
+        """
+    
         return f"""
         <div>
-        {summary}
-        <div style="style='max-height: 300px; overflow: auto">
-            {table_html}
-        </div>
+            {summary_html}
+            <div style="
+                max-height: 300px;
+                overflow-x: auto;
+                overflow-y: auto;
+                border: 1px solid #ddd;
+            ">
+                {table_html}
+            </div>
         </div>
         """
 
@@ -691,8 +752,15 @@ class DataCatalog:
                 )
             )
         
-        # Return filtered DataFrame
-        return self.datasets[mask]
+        # Filtered DataFrame
+        filtered_df = self.datasets[mask]
+
+        # Return new DataCatalog instance with filtered df
+        filtered_cat = self.__class__(yaml_path = self.config_file)
+        filtered_cat.datasets = filtered_df.reset_index(drop = True)
+        filtered_cat._df_summary = filtered_df.reset_index(drop = True)
+        
+        return filtered_cat
 
     def available_versions(self, dataset):
         """
