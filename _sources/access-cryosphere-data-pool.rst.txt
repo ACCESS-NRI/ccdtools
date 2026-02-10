@@ -1,7 +1,7 @@
 .. _api:
 
 ACCESS Cryosphere Community Datapool API Reference
-=========================================
+==================================================
 .. automodule:: datapool
 .. currentmodule:: datapool
 
@@ -14,7 +14,7 @@ The ACCESS Cryosphere Community Datapool is developed around a cenral ``DataCata
 .. autosummary::
     :toctree: api
 
-    datapool.catalog.DataCatalog
+    catalog.DataCatalog
 
 .. _data-discovery:
 
@@ -24,13 +24,13 @@ There are various methods to explore the DataCatalog:
 
 .. autosummary::
    :toctree: api
-   :no-index:
+   :recursive:
 
-    datapool.catalog.DataCatalog.available_resolutions
-    datapool.catalog.DataCatalog.available_subdatasets
-    datapool.catalog.DataCatalog.available_versions
-    datapool.catalog.DataCatalog.help
-    datapool.catalog.DataCatalog.search
+    catalog.DataCatalog.available_resolutions
+    catalog.DataCatalog.available_subdatasets
+    catalog.DataCatalog.available_versions
+    catalog.DataCatalog.help
+    catalog.DataCatalog.search
 
 .. _loading_data:
 
@@ -40,9 +40,9 @@ Datasets are loaded using the ``load_dataset`` method.
 
 .. autosummary::
    :toctree: api
-   :no-index:
+   :recursive:
 
-   datapool.catalog.DataCatalog.load_dataset
+   catalog.DataCatalog.load_dataset
 
 Under-the-hood, datasets are loaded using custom ``loaders``. 
 
@@ -50,4 +50,4 @@ Under-the-hood, datasets are loaded using custom ``loaders``.
    :toctree: api
    :recursive:
 
-   datapool.loaders
+   loaders
