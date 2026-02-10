@@ -59,11 +59,6 @@ autodoc_default_options = {
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
-## TEMPORARY FIX FOR ILL-FORMATTED DOCSTRINGS
-# Treat docstring errors as warnings, not fatal errors and do not fail build on docstring formatting
-# nitpicky = False
-# suppress_warnings = ["autodoc.import_object", "autodoc", "docutils"]
-
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
