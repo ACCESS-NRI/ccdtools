@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>access-cryosphere-data-pool API Reference &mdash; access-cryosphere-data-pool v0.0.1dev5 documentation</title>
+  <title>ACCESS Cryosphere Community Datapool API Reference &mdash; access-cryosphere-data-pool v0.0.1dev5 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
@@ -48,21 +48,13 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">access-cryosphere-data-pool API Reference</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ACCESS Cryosphere Community Datapool API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#datacatalog">DataCatalog</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/datapool.catalog.DataCatalog.html">datapool.catalog.DataCatalog</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#data-discovery">Data discovery</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/datapool.catalog.DataCatalog.available_resolutions.html">datapool.catalog.DataCatalog.available_resolutions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/datapool.catalog.DataCatalog.available_subdatasets.html">datapool.catalog.DataCatalog.available_subdatasets</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/datapool.catalog.DataCatalog.available_versions.html">datapool.catalog.DataCatalog.available_versions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/datapool.catalog.DataCatalog.help.html">datapool.catalog.DataCatalog.help</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/datapool.catalog.DataCatalog.search.html">datapool.catalog.DataCatalog.search</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-discovery">Data discovery</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#loading-data">Loading data</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/datapool.catalog.DataCatalog.load_dataset.html">datapool.catalog.DataCatalog.load_dataset</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/datapool.loaders.html">datapool.loaders</a></li>
 </ul>
 </li>
@@ -85,7 +77,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">access-cryosphere-data-pool API Reference</li>
+      <li class="breadcrumb-item active">ACCESS Cryosphere Community Datapool API Reference</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/access-cryosphere-data-pool.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -95,11 +87,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="access-cryosphere-data-pool-api-reference">
-<span id="api"></span><h1>access-cryosphere-data-pool API Reference<a class="headerlink" href="#access-cryosphere-data-pool-api-reference" title="Link to this heading"></a></h1>
+  <section id="access-cryosphere-community-datapool-api-reference">
+<span id="api"></span><h1>ACCESS Cryosphere Community Datapool API Reference<a class="headerlink" href="#access-cryosphere-community-datapool-api-reference" title="Link to this heading"></a></h1>
 <section id="datacatalog">
-<span id="data-catalog"></span><h2>DataCatalog<a class="headerlink" href="#datacatalog" title="Link to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">access-cryosphere-data-pool</span></code> is developed around a cenral <code class="docutils literal notranslate"><span class="pre">DataCatalog()</span></code> class.</p>
+<span id="data-catalog"></span><span id="module-datapool"></span><h2>DataCatalog<a class="headerlink" href="#datacatalog" title="Link to this heading"></a></h2>
+<p>The ACCESS Cryosphere Community Datapool is developed around a cenral <code class="docutils literal notranslate"><span class="pre">DataCatalog</span></code> class.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="api/datapool.catalog.DataCatalog.html#datapool.catalog.DataCatalog" title="datapool.catalog.DataCatalog"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datapool.catalog.DataCatalog</span></code></a>([yaml_path])</p></td>
@@ -111,36 +103,10 @@
 <section id="data-discovery">
 <span id="id1"></span><h2>Data discovery<a class="headerlink" href="#data-discovery" title="Link to this heading"></a></h2>
 <p>There are various methods to explore the DataCatalog:</p>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/datapool.catalog.DataCatalog.available_resolutions.html#datapool.catalog.DataCatalog.available_resolutions" title="datapool.catalog.DataCatalog.available_resolutions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datapool.catalog.DataCatalog.available_resolutions</span></code></a>(dataset)</p></td>
-<td><p>Show available resolutions for a given dataset/version/subdataset.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/datapool.catalog.DataCatalog.available_subdatasets.html#datapool.catalog.DataCatalog.available_subdatasets" title="datapool.catalog.DataCatalog.available_subdatasets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datapool.catalog.DataCatalog.available_subdatasets</span></code></a>(dataset)</p></td>
-<td><p>Show available subdatasets for a given dataset and version.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/datapool.catalog.DataCatalog.available_versions.html#datapool.catalog.DataCatalog.available_versions" title="datapool.catalog.DataCatalog.available_versions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datapool.catalog.DataCatalog.available_versions</span></code></a>(dataset)</p></td>
-<td><p>Show available versions for a given dataset.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="api/datapool.catalog.DataCatalog.help.html#datapool.catalog.DataCatalog.help" title="datapool.catalog.DataCatalog.help"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datapool.catalog.DataCatalog.help</span></code></a>([dataset, ...])</p></td>
-<td><p>Describe available datasets and their supported options without loading data.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/datapool.catalog.DataCatalog.search.html#datapool.catalog.DataCatalog.search" title="datapool.catalog.DataCatalog.search"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datapool.catalog.DataCatalog.search</span></code></a>(keyword)</p></td>
-<td><p>Search datasets by keyword in dataset name, display name, or tags.</p></td>
-</tr>
-</tbody>
-</table>
 </section>
 <section id="loading-data">
 <span id="id2"></span><h2>Loading data<a class="headerlink" href="#loading-data" title="Link to this heading"></a></h2>
-<p>Datasets are loaded using the <code class="docutils literal notranslate"><span class="pre">load_dataset()</span></code> method.</p>
-<table class="autosummary longtable docutils align-default">
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="api/datapool.catalog.DataCatalog.load_dataset.html#datapool.catalog.DataCatalog.load_dataset" title="datapool.catalog.DataCatalog.load_dataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">datapool.catalog.DataCatalog.load_dataset</span></code></a>(dataset)</p></td>
-<td><p>Load any dataset by name/version/subdataset with optional directory filtering.</p></td>
-</tr>
-</tbody>
-</table>
+<p>Datasets are loaded using the <code class="docutils literal notranslate"><span class="pre">load_dataset</span></code> method.</p>
 <p>Under-the-hood, datasets are loaded using custom <code class="docutils literal notranslate"><span class="pre">loaders</span></code>.</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
