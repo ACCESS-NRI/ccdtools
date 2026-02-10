@@ -69,12 +69,3 @@ suppress_warnings = ["autodoc.import_object", "autodoc", "docutils"]
 
 html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
-
-html_logo = "_static/ACCESS_Logo_2024_(RGB).png"
-html_theme_options = {
-    "github_url": "https://github.com/ACCESS-NRI/access-cryosphere-data-pool",
-    "logo": {
-        "image_light": "_static/ACCESS_Logo_2024_(RGB).png",
-        "image_dark": "_static/ACCESS_Logo_2024_Dark_Background_(RGB).png",
-    },
-}
