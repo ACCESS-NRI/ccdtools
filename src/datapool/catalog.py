@@ -20,7 +20,7 @@ class DataCatalog:
     ----------
     config_file : :class:`pathlib.Path` or :class:`str`
         Path to the YAML configuration file.
-    config : dict
+    config : :class:`dict`
         Parsed YAML configuration content.
     datasets : :class:`pandas.DataFrame`
         DataFrame listing all datasets, versions, and subdatasets with their metadata.
@@ -28,15 +28,17 @@ class DataCatalog:
         Subset or summary of the datasets DataFrame, used for display purposes
         (e.g., in `_repr_html_`). This may reflect filtered search results
         or the full catalog if no filtering has been applied. By default, it returns
-        self.datasets.
+        :class:`self.datasets`.
     
     Examples
     --------
-    >>> catalog = DataCatalog()
-    >>> catalog.help()
-    >>> data = catalog.load_dataset('dataset_name', version='v1')
+    Initialise and view a catalog
     
-    # Perform a search and view summary
+    >>> catalog = DataCatalog()
+    >>> catalog
+    
+    Perform a search and view the filtered catalog
+    
     >>> filtered_catalog = catalog.search('temperature')
     >>> filtered_catalog
     """

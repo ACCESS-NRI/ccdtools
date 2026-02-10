@@ -1,3 +1,7 @@
+"""
+Default and custom loader functions for datasets contained within the catalog
+"""
+
 import pandas as pd
 import xarray as xr
 import geopandas as gpd 
