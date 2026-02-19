@@ -7,7 +7,8 @@ Cryosphere Community Datapool (CCD) - Features and Capabilities Overview
 
 The Cryosphere Community Datapool (CCD) is built around a powerful dataset management system with the following core capabilities:
 
-#### Key Features
+Key Features
+-----------
 
 1. **Unified Dataset Catalog**
 CCD provides a centralized catalog of cryosphere-focused datasets maintained in a flexible YAML configuration. The catalog currently includes elevation and geometry datasets (e.g., BedMachine Antarctica, Bedmap), geospatial boundaries, basal forcing models, and ice velocity measurements from various sources including MEaSUREs, ITS_LIVE, and InSAR observations.
@@ -24,21 +25,22 @@ CCD handles multiple data formats transparently, including CSV, GeoPackage, Shap
 5. **Resolution and Parameter Filtering**
 For datasets with multiple resolutions or static/annual variants, users can specify desired resolution parameters during loading. CCD automatically filters and loads the correct data subset, supporting complex dataset structures with multiple resolution options.
 
-#### User Workflow
+User Workflow
+-----------
 
 Users interact with CCD in three simple steps:
 
 .. code-block:: python
-# 1. Initialize the catalog
-catalog = DataCatalog()
+   # 1. Initialize the catalog
+   catalog = DataCatalog()
 
-# 2. Browse and search for datasets
-results = catalog.search('ice velocity')
-catalog  # View interactive catalog
+   # 2. Browse and search for datasets
+   results = catalog.search('ice velocity')
+   catalog  # View interactive catalog
 
-# 3. Load data
-data = catalog.load_dataset('dataset_name', version='v1', subdataset='sub1')
-"""
+   # 3. Load data
+   data = catalog.load_dataset('dataset_name', version='v1', subdataset='sub1')
+   
 
 #### Use Cases
 
