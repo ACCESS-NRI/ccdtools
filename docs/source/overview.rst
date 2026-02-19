@@ -1,4 +1,4 @@
-Cryosphere Community Datapool (CCD) - Features and Capabilities Overview
+Overview: Features and Capabilities
 ========
 
 .. warning::
