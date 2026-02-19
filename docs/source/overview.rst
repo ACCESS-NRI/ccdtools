@@ -31,6 +31,7 @@ User Workflow
 Users interact with CCD in three simple steps:
 
 .. code-block:: python
+
    # 1. Initialize the catalog
    catalog = DataCatalog()
 
@@ -40,9 +41,10 @@ Users interact with CCD in three simple steps:
 
    # 3. Load data
    data = catalog.load_dataset('dataset_name', version='v1', subdataset='sub1')
-   
 
-#### Use Cases
+
+Use Cases
+-----------
 
 - **Model Initialisation:** Quickly access ice sheet model input datasets (topography, velocities, boundaries)
 - **Scientific Analysis:** Discover and load multi-source cryosphere datasets for comparative studies
