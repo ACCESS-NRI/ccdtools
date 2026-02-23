@@ -11,7 +11,7 @@ Key Features
 -----------
 
 1. **Unified Dataset Catalog:**
-CCD provides a centralized catalog of cryosphere-focused datasets maintained in a flexible YAML configuration. The catalog currently includes elevation and geometry datasets (e.g., BedMachine Antarctica, Bedmap), geospatial boundaries, basal forcing models, and ice velocity measurements from various sources including MEaSUREs, ITS_LIVE, and InSAR observations. Please see the `ACCESS-Hive Docs CCD page <https://docs.access-hive.org.au/model_evaluation/data/cryosphere_datapool/>`_ for a full list and desription of each dataset included.
+CCD provides a centralized catalog of cryosphere-focused datasets maintained in a flexible YAML configuration. The catalog currently includes elevation and geometry datasets (e.g., BedMachine Antarctica, Bedmap), geospatial boundaries, basal forcing models, and ice velocity measurements from various sources including MEaSUREs, ITS_LIVE, and InSAR observations. Please see the `ACCESS-Hive Docs CCD page <https://docs.access-hive.org.au/model_evaluation/data/cryosphere_datapool/>`_ for a full list and description of all available datasets.
 
 2. **Dataset Discovery and Search:**
 Users can easily explore available datasets through an interactive catalog interface. The search functionality allows users to find datasets by keywords across multiple metadata fields including dataset names, display names, and descriptive tags (e.g., "antarctica", "ice velocity", "ice thickness").
