@@ -12,6 +12,8 @@ retrieve and work with data commonly used for ice sheet modeling, climate analys
 
 As an open-source project, CCD encourages contributions from the community to expand its dataset offerings and enhance functionality.
 
+Please see the `ACCESS-Hive Docs CCD page <https://docs.access-hive.org.au/model_evaluation/data/cryosphere_datapool/>`_ for a full list and desription of each dataset included.
+
 .. warning::
    This is an experimental release. Documentation remains a work in progress. Some sections may be incomplete or under active development.
 
