@@ -26,7 +26,7 @@ There are various methods to explore the DataCatalog:
    :toctree: api
    :recursive:
 
-    available_resolutions
+    catalog.DataCatalog.available_resolutions
     catalog.DataCatalog.available_subdatasets
     catalog.DataCatalog.available_versions
     catalog.DataCatalog.help
