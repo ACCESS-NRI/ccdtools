@@ -4,11 +4,11 @@ Installation
 .. warning::
    This is an experimental release. Documentation remains a work in progress. Some sections may be incomplete or under development.
 
-`access-cryosphere-data-pool` can be installed using `pip` or `conda`, or by cloning the repository directly from GitHub. Below are instructions for each method.
+The Cryosphere Community Datapool (CCD) can be installed using PyPI or conda, or by cloning the repository directly from GitHub. Below are instructions for each method.
 
 Installing via PyPI
 ------------------
-You can install `access-cryosphere-data-pool` using PyPI, the Python package manager.
+You can install CCD using PyPI, the Python package manager.
 The latest CCD release can be found on PyPI here: https://pypi.org/project/access-cryosphere-data-pool/
 
 To install CCD using PyPI, run the following command in your terminal:
@@ -19,7 +19,7 @@ To install CCD using PyPI, run the following command in your terminal:
 
 Installing via conda
 --------------------
-The `access-cryosphere-data-pool` can be installed using conda via the `accessnri` channel:  
+CCD can be installed using conda via the `accessnri` channel:  
 https://anaconda.org/channels/accessnri/packages/access-cryosphere-data-pool/overview
 
 .. code-block:: bash
@@ -28,7 +28,7 @@ https://anaconda.org/channels/accessnri/packages/access-cryosphere-data-pool/ove
 
 Installing from GitHub (development version)
 --------------------------------------------
-You can also install the latest development version directly from the GitHub repository:
+You can also install the latest development version of CCD directly from the GitHub repository:
 
 1. Clone the repository:
 
@@ -42,20 +42,22 @@ You can also install the latest development version directly from the GitHub rep
 
       cd access-cryosphere-data-pool
 
-3. Install `access-cryosphere-data-pool` using pip:
+3. Install local clone of CCD using `pip`:
 
    .. code-block:: bash
 
       pip install .
 
 .. note::
-   Installing from GitHub is recommended only if you want the latest features or are contributing to `access-cryosphere-data-pool` development.
+   Installing from GitHub is recommended only if you want the latest features or are contributing to CCD development.
 
-Verifying the Installation
+Using and verifying the installation
 --------------------------
-After installation, you can verify the desired `access-cryosphere-data-pool` version is installed correctly by running the following commands in a Python shell:
+After installation is complete, CCD should be available for use in your chosen Python environment.
+
+To use CCD, import the library into a workflow and check the installed version, run the following:
 
 .. code-block:: python
 
-   import datapool
-   print(datapool.__version__)
+   import ccd
+   print(ccd.__version__)
