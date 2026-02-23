@@ -2,8 +2,8 @@
 
 ACCESS Cryosphere Community Datapool API Reference
 ==================================================
-.. automodule:: datapool
-.. currentmodule:: datapool
+.. automodule:: ccd
+.. currentmodule:: ccd
 
 .. _data-catalog:
 
