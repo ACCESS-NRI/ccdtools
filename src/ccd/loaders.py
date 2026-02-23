@@ -8,9 +8,10 @@ import geopandas as gpd
 import numpy as np
 import rioxarray as rxr
 import os
-from datetime import datetime
 import re
 import warnings
+
+from datetime import datetime
 
 def default(self, row, resolution = None, static = True, **kwargs):
     """
