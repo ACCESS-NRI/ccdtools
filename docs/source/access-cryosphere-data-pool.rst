@@ -1,6 +1,6 @@
 .. _api:
 
-ACCESS Cryosphere Community Datapool API Reference
+Cryosphere Community Datapool (CCD) API Reference
 ==================================================
 .. automodule:: ccd
 .. currentmodule:: ccd
@@ -26,7 +26,7 @@ There are various methods to explore the DataCatalog:
    :toctree: api
    :recursive:
 
-    catalog.DataCatalog.available_resolutions
+    available_resolutions
     catalog.DataCatalog.available_subdatasets
     catalog.DataCatalog.available_versions
     catalog.DataCatalog.help
