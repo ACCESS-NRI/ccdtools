@@ -1,9 +1,13 @@
-Cryosphere Community Datapool (CCD)
+Cryosphere Community Datapool Tools (`ccdtools`)
 =========================================
 
 Welcome to the Cryosphere Community Datapool (access-cryosphere-data-pool) documentation!
 
-The Cryosphere Community Datapool (CCD) is a Python library developed by ACCESS-NRI that provides seamless access to 
+The Cryosphere Community Datapool (CCD) is a joint project between `ACCESS-NRI <https://www.access-nri.org.au/>`_and the `Cryospheric Sciences Working Group (CSWG). <https://forum.access-hive.org.au/c/cryosphere/34>`_` 
+The CCD has been designed as an open-access and freely available cryospheric data resource for the community, and houses a variety of datasets commonly used 
+to parameterise ice sheet models. 
+
+This documentation describes the CCD Python library developed by `ACCESS-NRI <https://www.access-nri.org.au/>`_ that provides seamless access to 
 a curated collection of cryosphere-related community datasets hosted on the National Computational Infrastructure's Gadi 
 supercomputer project `av17`. Designed for the Australian cryosphere community, CCD offers an intuitive interface for discovering, 
 accessing, and analysing diverse data sources including satellite observations, in-situ measurements, and model outputs. 
@@ -20,7 +24,7 @@ Please see the `ACCESS-Hive Docs CCD page <https://docs.access-hive.org.au/model
 Quick Links
 -----------
 - :doc:`Overview <overview>` - A high-level introduction to CCD features and capabilities.
-- :doc:`Installation <installation>` - Instructions for installing CCD.
+- :doc:`Installation <installation>` - Instructions for installing and using `ccdtools`` in your Python environment.
 - :doc:`Tutorials <tutorials>` - Hands-on tutorials demonstrating the use of CCD
 - :doc:`API Reference <access-cryosphere-data-pool>` - Detailed API documentation for CCD submodules and classes.
 - :doc:`Contributing Guidelines <contributing>` - How to contribute to CCD development and documentation.
