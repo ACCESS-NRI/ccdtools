@@ -9,22 +9,22 @@ The Cryosphere Community Datapool (CCD) can be installed using PyPI or conda, or
 Installing via PyPI
 ------------------
 You can install CCD using PyPI, the Python package manager.
-The latest CCD release can be found on PyPI here: https://pypi.org/project/access-cryosphere-data-pool/
+The latest CCD release can be found on PyPI here: https://pypi.org/project/ccdtools/
 
 To install CCD using PyPI, run the following command in your terminal:
 
 .. code-block:: bash
 
-   pip install access-cryosphere-data-pool
+   pip install ccdtools
 
 Installing via conda
 --------------------
 CCD can be installed using conda via the `accessnri` channel:  
-https://anaconda.org/channels/accessnri/packages/access-cryosphere-data-pool/overview
+https://anaconda.org/channels/accessnri/packages/ccdtools/overview
 
 .. code-block:: bash
 
-   conda install accessnri::access-cryosphere-data-pool
+   conda install accessnri::ccdtools
 
 Installing from GitHub (development version)
 --------------------------------------------
@@ -34,13 +34,13 @@ You can also install the latest development version of CCD directly from the Git
 
    .. code-block:: bash
 
-      git clone https://github.com/ACCESS-NRI/access-cryosphere-data-pool.git
+      git clone https://github.com/ACCESS-NRI/ccdtools.git
 
 2. Navigate to the cloned directory:
 
    .. code-block:: bash
 
-      cd access-cryosphere-data-pool
+      cd ccdtools
 
 3. Install local clone of CCD using `pip`:
 
@@ -59,5 +59,5 @@ To use CCD, import the library into a workflow and check the installed version, 
 
 .. code-block:: python
 
-   import ccd
-   print(ccd.__version__)
+   import ccdtools
+   print(ccdtools.__version__)

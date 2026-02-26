@@ -31,7 +31,7 @@ Quick Links
 - :doc:`Overview <overview>` - A high-level introduction to CCD features and capabilities.
 - :doc:`Installation <installation>` - Instructions for installing and using `ccdtools`` in your Python environment.
 - :doc:`Tutorials <tutorials>` - Hands-on tutorials demonstrating the use of CCD
-- :doc:`API Reference <access-cryosphere-data-pool>` - Detailed API documentation for CCD submodules and classes.
+- :doc:`API Reference <ccdtools>` - Detailed API documentation for CCD submodules and classes.
 - :doc:`Contributing Guidelines <contributing>` - How to contribute to CCD development and documentation.
 
 Getting Started
@@ -54,5 +54,5 @@ We welcome contributions from the community! If you're interested in contributin
    overview
    installation
    tutorials
-   access-cryosphere-data-pool
+   ccdtools
    contributing
