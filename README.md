@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="docs/_static/ccdtools_logo_med.png" alt="ccdtools Logo" width="300"/>
+</div>
+
 # Cryosphere Community Datapool Tools (`ccdtools`)
 
 [![PyPI](https://img.shields.io/pypi/v/access-cryosphere-data-pool)](https://pypi.org/project/access-cryosphere-data-pool/)
