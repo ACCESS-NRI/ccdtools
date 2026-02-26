@@ -1,4 +1,4 @@
-name: Release access-cryosphere-data-pool
+name: Release ccdtools
 
 # Trigger release on push to tags starting with 'v'
 on:
@@ -11,7 +11,7 @@ jobs:
 
   # Job 1: Check dependencies and installation
   check_dependencies:
-    uses: access-nri/access-cryosphere-data-pool/.github/workflows/check-dependencies.yml@main
+    uses: access-nri/ccdtools/.github/workflows/check-dependencies.yml@main
     
   # Job 2: Publish Python package to PyPI and Conda
   publish_python_package:
@@ -43,7 +43,7 @@ jobs:
         uses: softprops/action-gh-release@6cbd405e2c4e67a21c47fa9e383d020e4e28b836 #v2.3.3
         with:
           tag_name: ${{ github.ref_name }}
-          name: access-cryosphere-data-pool ${{ github.ref_name }}
+          name: ccdtools ${{ github.ref_name }}
           generate_release_notes: true
           fail_on_unmatched_files: true
           files: |
