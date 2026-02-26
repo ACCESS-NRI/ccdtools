@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "access-cryosphere-data-pool"
+name = "ccdtools"
 version = "0.0.1.dev_180226"
 description = "Cryosphere Community Datapool (CCD) and associated tools, managed by ACCESS-NRI"
 readme = "README.md"
@@ -34,6 +34,6 @@ dependencies = [
 datapool = ["config/*.yml", "config/*.yaml"]
 
 [project.urls]
-Homepage = "https://github.com/ACCESS-NRI/access-cryosphere-data-pool"
-Repository = "https://github.com/ACCESS-NRI/access-cryosphere-data-pool"
-Issues = "https://github.com/ACCESS-NRI/access-cryosphere-data-pool/issues"
+Homepage = "https://github.com/ACCESS-NRI/ccdtools"
+Repository = "https://github.com/ACCESS-NRI/ccdtools"
+Issues = "https://github.com/ACCESS-NRI/ccdtools/issues"
