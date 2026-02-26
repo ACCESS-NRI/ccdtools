@@ -36,7 +36,7 @@ jobs:
       # Step 5: Smoke test - import core modules
       - name: Smoke test
         run: |
-          python -c "import ccd; print('Import successful')"
+          python -c "import ccdtools; print('Import successful')"
 
       # Step 6: Check for dependency issues
       - name: Check installed dependencies

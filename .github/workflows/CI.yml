@@ -14,7 +14,4 @@ jobs:
   
   # Job 1: Check dependencies and installation
   check_dependencies:
-    #uses: access-nri/access-cryosphere-data-pool/.github/workflows/check-dependencies.yml@main
-
-    # Temporary change for testing
-    uses: access-nri/access-cryosphere-data-pool/.github/workflows/check-dependencies.yml@mt/260217_docs_updates
+    uses: access-nri/ccdtools/.github/workflows/check-dependencies.yml@main
