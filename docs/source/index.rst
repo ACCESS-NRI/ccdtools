@@ -1,9 +1,14 @@
+.. image:: ../_static/ccdtools_logo_med.png
+   :align: center
+   :width: 300px
+   :alt: ccdtools Logo
+
 Cryosphere Community Datapool Tools (`ccdtools`)
 =========================================
 
-Welcome to the Cryosphere Community Datapool (access-cryosphere-data-pool) documentation!
+Welcome to the Cryosphere Community Datapool Tools (ccdtools) documentation!
 
-The Cryosphere Community Datapool (CCD) is a joint project between `ACCESS-NRI <https://www.access-nri.org.au/>`_and the `Cryospheric Sciences Working Group (CSWG). <https://forum.access-hive.org.au/c/cryosphere/34>`_` 
+The Cryosphere Community Datapool (CCD) is a joint project between `ACCESS-NRI <https://www.access-nri.org.au/>`_ and the `Cryospheric Sciences Working Group (CSWG) <https://forum.access-hive.org.au/c/cryosphere/34>`_. 
 The CCD has been designed as an open-access and freely available cryospheric data resource for the community, and houses a variety of datasets commonly used 
 to parameterise ice sheet models. 
 
