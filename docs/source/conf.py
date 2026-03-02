@@ -15,7 +15,7 @@ from datetime import datetime
 sys.path.insert(0, os.path.abspath('../src'))
 
 # Define project information
-project = 'access-cryosphere-data-pool'
+project = 'ccdtools'
 author = 'ACCESS-NRI'
 copyright = f"{datetime.now().year}, {author}"
 release = 'v0.0.1dev5'
