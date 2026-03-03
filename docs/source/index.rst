@@ -6,20 +6,21 @@
 Cryosphere Community Datapool Tools (`ccdtools`)
 =========================================
 
-Welcome to the Cryosphere Community Datapool Tools (ccdtools) documentation!
+Welcome to the Cryosphere Community Datapool Tools (`ccdtools``) documentation!
 
-The Cryosphere Community Datapool (CCD) is a joint project between `ACCESS-NRI <https://www.access-nri.org.au/>`_ and the `Cryospheric Sciences Working Group (CSWG) <https://forum.access-hive.org.au/c/cryosphere/34>`_. 
-The CCD has been designed as an open-access and freely available cryospheric data resource for the community, and houses a variety of datasets commonly used 
-to parameterise ice sheet models. 
+`The Cryosphere Community Datapool (CCD) <https://docs.access-hive.org.au/model_evaluation/data/cryosphere_datapool/>`_ is a joint data sharing and 
+discovery project between `ACCESS-NRI <https://www.access-nri.org.au/>`_ and the `Cryospheric Sciences Working Group (CSWG) <https://forum.access-hive.org.au/c/cryosphere/34>`_. 
+The `CCD`` has been designed as an open-access and freely available cryospheric data resource for the Australian scientific community, maintaining a 
+variety of datasets commonly used to parameterise ice sheet models. The `CCD`` is hosted within the National Computational Infrastructure's Gadi supercomputer 
+project `av17`.
 
-This documentation describes the CCD Python library developed by `ACCESS-NRI <https://www.access-nri.org.au/>`_ that provides seamless access to 
-a curated collection of cryosphere-related community datasets hosted on the National Computational Infrastructure's Gadi 
-supercomputer project `av17`. Designed for the Australian cryosphere community, CCD offers an intuitive interface for discovering, 
-accessing, and analysing diverse data sources including satellite observations, in-situ measurements, and model outputs. 
+This documentation describes the associated Python library `ccdtools` developed by `ACCESS-NRI <https://www.access-nri.org.au/>`_ that provides seamless 
+access to the data within `CCD`. Designed for the Australian cryosphere community, `CCD` offers an intuitive 
+interface for discovering, accessing, and analysing diverse data sources including satellite observations, in-situ measurements, and model outputs. 
 The library features a powerful dataset catalog system, enabling researchers, educators, and practitioners to efficiently 
 retrieve and work with data commonly used for ice sheet modeling, climate analysis, and other cryospheric studies. 
 
-As an open-source project, CCD encourages contributions from the community to expand its dataset offerings and enhance functionality.
+As an open-source project, `CCD` encourages contributions from the community to expand its dataset offerings and enhance functionality.
 
 Please see the `ACCESS-Hive Docs CCD page <https://docs.access-hive.org.au/model_evaluation/data/cryosphere_datapool/>`_ for a full list and description of all available datasets.
 
