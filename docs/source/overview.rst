@@ -5,7 +5,7 @@ Overview: Features and Capabilities
    This is an experimental release. Documentation remains a work in progress. Some sections may be incomplete or under development.
 
 
-The Cryosphere Community Datapool (CCD) is built around a powerful dataset management system with the following core capabilities:
+The Cryosphere Community Datapool (CCD) and it's Python interface `cddtools` are a powerful dataset management and sharing system with the following core capabilities:
 
 Key Features
 -----------
@@ -14,7 +14,7 @@ Key Features
 CCD provides a centralized catalog of cryosphere-focused datasets maintained in a flexible YAML configuration. The catalog currently includes elevation and geometry datasets (e.g., BedMachine Antarctica, Bedmap), geospatial boundaries, basal forcing models, and ice velocity measurements from various sources including MEaSUREs, ITS_LIVE, and InSAR observations. Please see the `ACCESS-Hive Docs CCD page <https://docs.access-hive.org.au/model_evaluation/data/cryosphere_datapool/>`_ for a full list and description of all available datasets.
 
 2. **Dataset Discovery and Search:**
-Users can easily explore available datasets through an interactive catalog interface. The search functionality allows users to find datasets by keywords across multiple metadata fields including dataset names, display names, and descriptive tags (e.g., "antarctica", "ice velocity", "ice thickness").
+Users can easily explore available datasets through an interactive catalog interface `ccdtools`. The search functionality allows users to find datasets by keywords across multiple metadata fields including dataset names, display names, and descriptive tags (e.g., "antarctica", "ice velocity", "ice thickness").
 
 3. **Version and Subdataset Management:**
 CCD supports datasets with multiple versions and hierarchical subdatasets. For example, the Bedmap dataset includes three versions (v1, v2, v3), each with multiple subdatasets (geospatial, points, and gridded data). This structure enables researchers to access specific data variants and historical version comparisons.
@@ -23,12 +23,12 @@ CCD supports datasets with multiple versions and hierarchical subdatasets. For e
 CCD handles multiple data formats transparently, including CSV, GeoPackage, Shapefile, GeoTIFF, and NetCDF formats. Users specify the format in the catalog configuration, and the appropriate loader automatically handles file discovery and data loading, returning Pandas DataFrames, GeoPandas GeoDataFrames, or Xarray Datasets as appropriate.
 
 5. **Resolution and Parameter Filtering:**
-For datasets with multiple resolutions or static/annual variants, users can specify desired resolution parameters during loading. CCD automatically filters and loads the correct data subset, supporting complex dataset structures with multiple resolution options.
+For datasets with multiple resolutions or static/annual variants, users can specify desired resolution parameters during loading. `ccdtools` automatically filters and loads the correct data subset, supporting complex dataset structures with multiple resolution options.
 
 User Workflow
 -----------
 
-Users interact with CCD in three simple steps:
+`ccdtools` allows users to interact with the CCD in three simple steps:
 
 .. code-block:: python
 
@@ -43,7 +43,7 @@ Users interact with CCD in three simple steps:
    data = catalog.load_dataset('dataset_name', version='v1', subdataset='sub1')
 
 
-Use Cases
+Common Use Cases
 -----------
 
 - **Model Initialisation:** Quickly access ice sheet model input datasets (topography, velocities, boundaries)

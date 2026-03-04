@@ -9,7 +9,7 @@ Cryosphere Community Datapool Tools (ccdtools) API Reference
 
 DataCatalog
 -----------
-The ACCESS Cryosphere Community Datapool is developed around a cenral ``DataCatalog`` class.
+`ccdtools` is developed around a central ``DataCatalog`` class.
 
 .. autosummary::
     :toctree: api
