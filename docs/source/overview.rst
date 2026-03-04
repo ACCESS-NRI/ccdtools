@@ -5,7 +5,7 @@ Overview: Features and Capabilities
    This is an experimental release. Documentation remains a work in progress. Some sections may be incomplete or under development.
 
 
-The Cryosphere Community Datapool (CCD) and it's Python interface `cddtools` are a powerful dataset management and sharing system with the following core capabilities:
+The Cryosphere Community Datapool (CCD) and it's Python interface `ccdtools` are a powerful dataset management and sharing system with the following core capabilities:
 
 Key Features
 -----------
@@ -28,7 +28,7 @@ For datasets with multiple resolutions or static/annual variants, users can spec
 User Workflow
 -----------
 
-`ccdtools` allows users to interact with the CCD in three simple steps:
+`ccdtools` allows users to interact with the CCD in three simple steps. For example:
 
 .. code-block:: python
 
