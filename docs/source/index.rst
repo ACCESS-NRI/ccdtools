@@ -6,7 +6,7 @@
 Cryosphere Community Datapool Tools (`ccdtools`)
 =========================================
 
-Welcome to the Cryosphere Community Datapool Tools (**ccdtools**) documentation!
+Welcome to the Cryosphere Community Datapool Tools (***ccdtools***) documentation!
 
 `The Cryosphere Community Datapool (CCD) <https://docs.access-hive.org.au/model_evaluation/data/cryosphere_datapool/>`_ is a joint data sharing and 
 discovery project between `ACCESS-NRI <https://www.access-nri.org.au/>`_ and the `Cryospheric Sciences Working Group (CSWG) <https://forum.access-hive.org.au/c/cryosphere/34>`_. 
