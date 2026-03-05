@@ -4,14 +4,14 @@ Installation
 .. warning::
    This is an experimental release. Documentation remains a work in progress. Some sections may be incomplete or under development.
 
-`ccdtools` can be installed using PyPI or conda, or by cloning the repository directly from GitHub. Below are instructions for each method.
+**ccdtools** can be installed using PyPI or conda, or by cloning the repository directly from GitHub. Below are instructions for each method.
 
 Installing via PyPI
 ------------------
-You can install `ccdtools` using PyPI, the Python package manager.
-The latest `ccdtools` release can be found on PyPI here: https://pypi.org/project/ccdtools/
+You can install **ccdtools** using PyPI, the Python package manager.
+The latest **ccdtools** release can be found on PyPI here: https://pypi.org/project/ccdtools/
 
-To install `ccdtools` using PyPI, run the following command in your terminal:
+To install **ccdtools** using PyPI, run the following command in your terminal:
 
 .. code-block:: bash
 
@@ -19,8 +19,8 @@ To install `ccdtools` using PyPI, run the following command in your terminal:
 
 Installing via conda
 --------------------
-`ccdtools` can be installed using conda via the `accessnri` channel:  
-https://anaconda.org/channels/accessnri/packages/ccdtools/overview
+**ccdtools** can be installed using conda via the `accessnri` channel:  
+https://anaconda.org/channels/accessnri/packages/ccdtools
 
 .. code-block:: bash
 
@@ -28,7 +28,7 @@ https://anaconda.org/channels/accessnri/packages/ccdtools/overview
 
 Installing from GitHub (development version)
 --------------------------------------------
-You can also install the latest development version of `ccdtools` directly from the GitHub repository:
+You can also install the latest development version of **ccdtools** directly from the GitHub repository:
 
 1. Clone the repository:
 
@@ -42,20 +42,20 @@ You can also install the latest development version of `ccdtools` directly from 
 
       cd ccdtools
 
-3. Install local clone of `ccdtools` using `pip`:
+3. Install local clone of **ccdtools** using `pip`:
 
    .. code-block:: bash
 
       pip install .
 
 .. note::
-   Installing from GitHub is recommended only if you want the latest features or are contributing to `ccdtools` development.
+   Installing from GitHub is recommended only if you want the latest features or are contributing to **ccdtools** development.
 
 Using and verifying the installation
 --------------------------
-After installation is complete, `ccdtools` should be available for use in your chosen Python environment.
+After installation is complete, **ccdtools** should be available for use in your chosen Python environment.
 
-To use `ccdtools`, import the library into a workflow and check the installed version, run the following:
+To use **ccdtools**, import the library into a workflow and check the installed version, run the following:
 
 .. code-block:: python
 
