@@ -19,7 +19,7 @@ access to the data located within the `CCD`. The **ccdtools** library offers an 
 including satellite observations, in-situ measurements, and model outputs. The library features a powerful dataset catalog system, enabling users to efficiently 
 retrieve and work with data commonly used for ice sheet modelling, climate analysis, and cryospheric studies. 
 
-As an open-source project, `CCD`` and by extension **ccdtools** encourage contributions from the community to expand both dataset offerings and enhance functionality.
+As an open-source projects, both `CCD` and **ccdtools** encourage contributions from the community to expand both dataset offerings and enhance functionality.
 
 Please see the `ACCESS-Hive Docs CCD page <https://docs.access-hive.org.au/model_evaluation/data/cryosphere_datapool/>`_ for a full list and description of all available datasets.
 
