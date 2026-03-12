@@ -19,7 +19,7 @@
 We welcome any feedback and ideas! Let us know by submitting [issues on GitHub](https://github.com/ACCESS-NRI/access-cryosphere-data-pool/issues) or [joining our community](https://forum.access-hive.org.au/c/cryosphere/34).
 
 ## Documentation
-Read the [documentation here](https://access-cryosphere-data-poo.readthedocs.io/latest/)
+Read the [documentation here](https://ccdtools.readthedocs.io)
 
 ## License
 [![License](https://img.shields.io/github/license/ACCESS-NRI/access-cryosphere-data-pool)](https://github.com/ACCESS-NRI/access-cryosphere-data-pool/blob/main/LICENSE)
