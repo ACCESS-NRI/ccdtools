@@ -6,7 +6,7 @@
 
 [![PyPI](https://img.shields.io/pypi/v/access-cryosphere-data-pool)](https://pypi.org/project/access-cryosphere-data-pool/)
 [![Conda](https://img.shields.io/conda/v/accessnri/access-cryosphere-data-pool)](https://anaconda.org/accessnri/access-cryosphere-data-pool)
-[![Docs](https://app.readthedocs.org/projects/access-cryosphere-data-pool/badge/?version=latest)](https://access-cryosphere-data-pool.readthedocs.io/latest/)
+[![Docs](https://app.readthedocs.org/projects/ccdtools/badge/?version=latest)](https://ccdtools.readthedocs.io/latest/)
 
 
 ---
@@ -22,4 +22,4 @@ We welcome any feedback and ideas! Let us know by submitting [issues on GitHub](
 Read the [documentation here](https://ccdtools.readthedocs.io)
 
 ## License
-[![License](https://img.shields.io/github/license/ACCESS-NRI/access-cryosphere-data-pool)](https://github.com/ACCESS-NRI/access-cryosphere-data-pool/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/ACCESS-NRI/ccdtools)](https://github.com/ACCESS-NRI/ccdtools/blob/main/LICENSE)
