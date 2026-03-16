@@ -1,9 +1,6 @@
 Installation
 ============
 
-.. warning::
-   This is an experimental release. Documentation remains a work in progress. Some sections may be incomplete or under development.
-
 **ccdtools** can be installed using PyPI or conda, or by cloning the repository directly from GitHub. Below are instructions for each method.
 
 Installing via PyPI

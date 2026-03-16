@@ -1,17 +1,13 @@
 Overview: Features and Capabilities
 ========
 
-.. warning::
-   This is an experimental release. Documentation remains a work in progress. Some sections may be incomplete or under development.
-
-
 The Cryosphere Community Datapool (CCD) and it's Python interface **ccdtools** are a powerful dataset management and sharing system with the following core capabilities:
 
 Key Features
 -----------
 
 1. **Unified Dataset Catalog:**
-`CCD` provides a centralized catalog of cryosphere-focused datasets maintained in a flexible YAML configuration. The catalog currently includes elevation and geometry datasets (e.g., BedMachine Antarctica, Bedmap), geospatial boundaries, basal forcing models, and ice velocity measurements from various sources including MEaSUREs, ITS_LIVE, and InSAR observations. Please see the `ACCESS-Hive Docs CCD page <https://docs.access-hive.org.au/model_evaluation/data/cryosphere_datapool/>`_ for a full list and description of all available datasets.
+`CCD` provides a centralised catalog of cryosphere-focused datasets maintained in a flexible YAML configuration. The catalog currently includes elevation and geometry datasets (e.g., BedMachine Antarctica, Bedmap), geospatial boundaries, basal forcing models, and ice velocity measurements from various sources including MEaSUREs, ITS_LIVE, and InSAR observations. Please see the `ACCESS-Hive Docs CCD page <https://docs.access-hive.org.au/model_evaluation/data/cryosphere_datapool/>`_ for a full list and description of all available datasets.
 
 2. **Dataset Discovery and Search:**
 Users can easily explore available datasets through an interactive catalog interface **ccdtools**. The search functionality allows users to find datasets by keywords across multiple metadata fields including dataset names, display names, and descriptive tags (e.g., "antarctica", "ice velocity", "ice thickness").

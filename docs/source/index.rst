@@ -14,7 +14,7 @@ The `CCD` has been designed as an open-access and freely available cryospheric d
 variety of datasets commonly used to parameterise ice sheet models. The `CCD` is hosted on the National Computational Infrastructure (NCI) Gadi supercomputer 
 within project `av17`.
 
-This documentation describes the associated Python interface **ccdtools** developed by `ACCESS-NRI <https://www.access-nri.org.au/>`_ that provides seamless 
+This documentation describes the `CCD` Python interface **ccdtools** developed by `ACCESS-NRI <https://www.access-nri.org.au/>`_ that provides seamless 
 access to the data located within the `CCD`. The **ccdtools** library offers an intuitive interface for discovering, accessing, and analysing diverse data sources 
 including satellite observations, in-situ measurements, and model outputs. The library features a powerful dataset catalog system, enabling users to efficiently 
 retrieve and work with data commonly used for ice sheet modelling, climate analysis, and cryospheric studies. 
@@ -24,7 +24,7 @@ As an open-source projects, both `CCD` and **ccdtools** encourage contributions 
 Please see the `ACCESS-Hive Docs CCD page <https://docs.access-hive.org.au/model_evaluation/data/cryosphere_datapool/>`_ for a full list and description of all available datasets.
 
 .. warning::
-   ccdtools is under active development and remains a work in progress. Please let us know if anything is missing or if you have any suggestions for improvements by creating an issue on our `GitHub repository <https://github.com/ACCESS-NRI/ccdtools/issues>`_.
+   `ccdtools` is under active development and remains a work in progress. Please let us know if anything is missing or if you have any suggestions for improvements by creating an `issue on our GitHub repository <https://github.com/ACCESS-NRI/ccdtools/issues>`_.
 
 Quick Links
 -----------
