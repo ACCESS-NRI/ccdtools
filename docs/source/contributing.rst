@@ -1,12 +1,9 @@
 Contributing
 ============
 
-.. warning::
-   This is an experimental release. Documentation remains a work in progress. Some sections may be incomplete or under development.
-
 We welcome contributions from the community! There are several ways you can contribute to both the Cryosphere Community Datapool (CCD) and **ccdtools** projects:
 
-1. **Reporting Issues**: If you encounter any bugs or have suggestions for improvements, please open an issue on our `GitHub repository <https://github.com/ACCESS-NRI/ccdtools/issues>`_.
+1. **Reporting Issues**: If you encounter any bugs or have suggestions for improvements, please open an `issue on our GitHub repository <https://github.com/ACCESS-NRI/ccdtools/issues>`_.
 
 2. **Submitting Pull Requests**: If you would like to contribute code, please fork the repository, make your changes, and submit a pull request. Be sure to follow our coding standards and include tests for any new features or bug fixes.
 
