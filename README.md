@@ -11,15 +11,29 @@
 
 ---
 ## About
-`ccdtools` is an open-source data pool for the Australian cryosphere community, hosted on the [National Computational Infrastructure (NCI)](https://nci.org.au/about-us/who-we-are) supercomputer [Gadi](https://opus.nci.org.au/spaces/Help/pages/90308778/0.+Welcome+to+Gadi#id-0.WelcometoGadi-Overview). Develped and maintained by ACCESS-NRI, the data pool contains cryosphere-focused datasets that are commonly used for ice sheet model initialisation, as well as other cryospheric sciences.
+Welcome to the Cryosphere Community Datapool Tools (**ccdtools**)!
 
-## Project status 
-🚨 **`ccdtools` is in the initial development stage.** 🚨
+[The Cryosphere Community Datapool (CCD)](https://docs.access-hive.org.au/model_evaluation/data/cryosphere_datapool/) is a joint data sharing and
+discovery project between [ACCESS-NRI](https://www.access-nri.org.au/) and the [Cryospheric Sciences Working Group (CSWG)](https://forum.access-hive.org.au/c/cryosphere/34).
+The `CCD` has been designed as an open-access and freely available cryospheric data resource for the Australian scientific community, maintaining a
+variety of datasets commonly used to parameterise ice sheet models. The `CCD` is hosted on the National Computational Infrastructure (NCI) Gadi supercomputer
+within project `av17`.
 
-We welcome any feedback and ideas! Let us know by submitting [issues on GitHub](https://github.com/ACCESS-NRI/access-cryosphere-data-pool/issues) or [joining our community](https://forum.access-hive.org.au/c/cryosphere/34).
+This repository contains the associated Python interface **ccdtools** developed by [ACCESS-NRI](https://www.access-nri.org.au/) that provides seamless
+access to the data located within the `CCD`. The **ccdtools** library offers an intuitive interface for discovering, accessing, and analysing diverse data sources
+including satellite observations, in-situ measurements, and model outputs. The library features a powerful dataset catalog system, enabling users to efficiently
+retrieve and work with data commonly used for ice sheet modelling, climate analysis, and cryospheric studies.
+
+As open-source projects, both `CCD` and **ccdtools** encourage contributions from the community to expand both dataset offerings and enhance functionality.
+
+Please see the [ACCESS-Hive Docs CCD page](https://docs.access-hive.org.au/model_evaluation/data/cryosphere_datapool/) for a full list and description of all available datasets.
+
+
+## Contributing
+We welcome contributions from the community! If you're interested in contributing to **ccdtools** development or documentation, please check out our [Contributing guidelines](https://ccdtools.readthedocs.io/latest/contributing.html).
 
 ## Documentation
-Read the [documentation here](https://ccdtools.readthedocs.io)
+Read the [documentation here](https://ccdtools.readthedocs.io/latest/)
 
 ## License
 [![License](https://img.shields.io/github/license/ACCESS-NRI/ccdtools)](https://github.com/ACCESS-NRI/ccdtools/blob/main/LICENSE)
