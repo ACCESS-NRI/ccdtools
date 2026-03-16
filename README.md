@@ -30,7 +30,7 @@ Please see the [ACCESS-Hive Docs CCD page](https://docs.access-hive.org.au/model
 
 
 ## Contributing
-We welcome contributions from the community! If you're interested in contributing to **ccdtools** development or documentation, please check out our [Contributing guidelines](https://ccdtools.readthedocs.io/contributing.html).
+We welcome contributions from the community! If you're interested in contributing to **ccdtools** development or documentation, please check out our [Contributing guidelines](https://ccdtools.readthedocs.io/latest/contributing.html).
 
 ## Documentation
 Read the [documentation here](https://ccdtools.readthedocs.io/latest/)
