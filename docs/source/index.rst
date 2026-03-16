@@ -24,7 +24,7 @@ As an open-source projects, both `CCD` and **ccdtools** encourage contributions 
 Please see the `ACCESS-Hive Docs CCD page <https://docs.access-hive.org.au/model_evaluation/data/cryosphere_datapool/>`_ for a full list and description of all available datasets.
 
 .. warning::
-   ccdtools is under active development and remains a work in progress. Please let us know if anything is missing or if you have any suggestions for improvements by creating an issue on our `GitHub repository <https://github.com/ACCESS-NRI/ccdtools/issues>`_.
+   `ccdtools` is under active development and remains a work in progress. Please let us know if anything is missing or if you have any suggestions for improvements by creating an `issue on our GitHub repository <https://github.com/ACCESS-NRI/ccdtools/issues>`_.
 
 Quick Links
 -----------
