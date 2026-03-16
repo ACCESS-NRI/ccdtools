@@ -6,7 +6,7 @@
 
 [![PyPI](https://img.shields.io/pypi/v/access-cryosphere-data-pool)](https://pypi.org/project/access-cryosphere-data-pool/)
 [![Conda](https://img.shields.io/conda/v/accessnri/access-cryosphere-data-pool)](https://anaconda.org/accessnri/access-cryosphere-data-pool)
-[![Docs](https://app.readthedocs.org/projects/access-cryosphere-data-pool/badge/?version=latest)](https://access-cryosphere-data-pool.readthedocs.io/latest/)
+[![Docs](https://app.readthedocs.org/projects/ccdtools/badge/?version=latest)](https://ccdtools.readthedocs.io/latest/)
 
 
 ---
