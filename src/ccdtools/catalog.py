@@ -70,7 +70,7 @@ class DataCatalog:
         # If yaml_path is not specified, use to default ../config/datasets.yaml
         if yaml_path is None:
             with resources.as_file(
-                resources.files(__package__).joinpath("config/datasets.yaml")
+                resources.files("ccdtools").joinpath("config/datasets.yaml")
             ) as p:
                 self.config_file = Path(p)
         else:
