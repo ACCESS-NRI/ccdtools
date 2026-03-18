@@ -31,7 +31,7 @@ dependencies = [
 ]
 
 [tool.setuptools.package-data]
-datapool = ["config/*.yml", "config/*.yaml"]
+ccdtools = ["config/*.yml", "config/*.yaml"]
 
 [project.urls]
 Homepage = "https://github.com/ACCESS-NRI/ccdtools"
