@@ -19,7 +19,6 @@ datasets:
       v3: 10.5067/FPSU0V1MWUB6
   
   bedmap:
-    doi: 10.000/ABCD
     display_name: Bedmap
     path: /g/data/av17/access-nri/cryosphere-data-pool/elevation_geometry/bedmap
     description: Gridded, geospatial, and point datasets of Antarctic ice thickness, surface elevation, and bed elevation.
@@ -34,14 +33,17 @@ datasets:
           subpath: geospatial_data
           extension: gpkg
           no_data_value: -9999
+          doi: 10.5285/925ac4ec-2a9d-461a-bfaa-6314eb0888c8
         points:
           subpath: point_data
           extension: csv
           skip_lines: 18
           no_data_value: -9999
+          doi: 10.5285/f64815ec-4077-4432-9f55-0ce230f46029
         gridded:
           subpath: gridded_data
           extension: tif
+          doi: 10.5285/908BB17F-467C-42BF-AE00-F03BB0FEEA23
       v2:
         geospatial:
           subpath: geospatial_data
