@@ -12,22 +12,11 @@ datasets:
       - surface elevation
       - bed uncertainty
       - ice mask
-    subdatasets:
-      v1:
-        v1:
-          doi: 10.5067/C2GFER6PTOS4
-          subpath: v1
-          extension: nc
-      v2:
-        v2:
-          doi: 10.5067/E1QL9HFQ7A8M
-          subpath: v2
-          extension: nc
-      v3:
-        v3:
-          doi: 10.5067/FPSU0V1MWUB6
-          subpath: v3
-          extension: nc
+    extension: nc
+    doi:
+      v1: 10.5067/C2GFER6PTOS4
+      v2: 10.5067/E1QL9HFQ7A8M
+      v3: 10.5067/FPSU0V1MWUB6
   
   bedmap:
     doi: 10.000/ABCD
