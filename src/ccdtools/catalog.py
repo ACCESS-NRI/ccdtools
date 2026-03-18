@@ -1081,7 +1081,11 @@ class DataCatalog:
             )
 
         print(f"\nVersion: {version}")
-        print(f"\nDOI: {doi}")
+
+        # Extract row for metadata access
+        row = subset.iloc[0]
+        doi = row.get("doi", None)
+        print(f"DOI: {doi}")
 
         
 
@@ -1098,7 +1102,6 @@ class DataCatalog:
 
         # 5. Capabilities (based on row metadata)
         # ------------------------------------------------------------------
-        row = subset.iloc[0]
 
         print("\nSupported catalog keywords:")
         print(f"  - subdataset : {'yes' if not subset.subdataset.isna().all() else 'no'}")
