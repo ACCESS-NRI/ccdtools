@@ -315,7 +315,8 @@ class DataCatalog:
             DataFrame with columns: ``dataset``, ``display_name``, ``description``,
             ``tags``, ``version``, ``subdataset``, ``path``, ``full_path``,
             ``extension``, ``skip_lines``, ``no_data_value``, ``ignore_dirs``,
-            ``ignore_files``, ``loader``, ``resolutions``, ``static_patterns``.
+            ``ignore_files``, ``loader``, ``resolutions``, ``static_patterns``,
+            ``doi``.
         """
 
         # Initialize list to hold dataset records
@@ -356,6 +357,7 @@ class DataCatalog:
                         loader = self._resolve_metadata(meta, subds_meta, version, "loader", "default")
                         resolutions = self._resolve_metadata(meta, subds_meta, version, "resolutions")
                         static_patterns = self._resolve_metadata(meta, subds_meta, version, "static_patterns", [])
+                        doi = self._resolve_metadata(meta, subds_meta, version, "doi", None)
                         
                         # Normalise lists as needed
                         ignore_dirs = self._normalise_list(ignore_dirs)
@@ -389,6 +391,7 @@ class DataCatalog:
                             "loader": loader,
                             "resolutions": resolutions,
                             "static_patterns": static_patterns,
+                            "doi": doi,
                         })
 
             # VERSIONED DATASETS (no subdatasets)
@@ -406,6 +409,7 @@ class DataCatalog:
                     loader = self._resolve_metadata(meta, None, version, "loader", "default")
                     resolutions = self._resolve_metadata(meta, None, version, "resolutions")
                     static_patterns = self._resolve_metadata(meta, None, version, "static_patterns", [])
+                    doi = self._resolve_metadata(meta, None, version, "doi", None)
 
                     # Normalise lists as needed
                     ignore_dirs = self._normalise_list(ignore_dirs)
@@ -437,6 +441,7 @@ class DataCatalog:
                         "loader": loader,
                         "resolutions": resolutions,
                         "static_patterns": static_patterns,
+                        "doi": doi,
                     })
 
         return pd.DataFrame(records)
@@ -1077,6 +1082,13 @@ class DataCatalog:
 
         print(f"\nVersion: {version}")
 
+        # Extract row for metadata access
+        row = subset.iloc[0]
+        doi = row.get("doi", None)
+        print(f"DOI: {doi}")
+
+        
+
         # 4. Subdatasets
         # ------------------------------------------------------------------
         # If subdatasets exist, list them
@@ -1090,7 +1102,6 @@ class DataCatalog:
 
         # 5. Capabilities (based on row metadata)
         # ------------------------------------------------------------------
-        row = subset.iloc[0]
 
         print("\nSupported catalog keywords:")
         print(f"  - subdataset : {'yes' if not subset.subdataset.isna().all() else 'no'}")
