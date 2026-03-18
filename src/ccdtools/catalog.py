@@ -1081,6 +1081,9 @@ class DataCatalog:
             )
 
         print(f"\nVersion: {version}")
+        print(f"\nDOI: {doi}")
+
+        
 
         # 4. Subdatasets
         # ------------------------------------------------------------------
