@@ -15,17 +15,20 @@ datasets:
     extension: nc
     subdatasets:
       v1:
-        doi: 10.5067/C2GFER6PTOS4
-        subpath: v1
-        extension: nc
+        data:
+          doi: 10.5067/C2GFER6PTOS4
+          subpath: v1
+          extension: nc
       v2:
-        doi: 10.5067/E1QL9HFQ7A8M
-        subpath: v2
-        extension: nc
+        data:
+          doi: 10.5067/E1QL9HFQ7A8M
+          subpath: v2
+          extension: nc
       v3:
-        doi: 10.5067/FPSU0V1MWUB6
-        subpath: v3
-        extension: nc
+        data:
+          doi: 10.5067/FPSU0V1MWUB6
+          subpath: v3
+          extension: nc
   
   bedmap:
     doi: 10.000/ABCD
