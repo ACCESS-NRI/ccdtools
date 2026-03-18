@@ -2,7 +2,6 @@ datasets:
   
   # ELEVATION AND GEOMETRY DATASETS
   measures_bedmachine_antarctica:
-    doi: 10.000/ABCD
     display_name: BedMachine Antarctica
     path: /g/data/av17/access-nri/cryosphere-data-pool/elevation_geometry/measures_bedmachine_antarctica
     description: High-resolution bed topography and ice thickness data for Antarctica.
@@ -14,6 +13,13 @@ datasets:
       - bed uncertainty
       - ice mask
     extension: nc
+    subdatasets:
+      v1:
+        doi: 10.5067/C2GFER6PTOS4
+      v2:
+        doi: 10.5067/E1QL9HFQ7A8M
+      v3:
+        doi: 10.5067/FPSU0V1MWUB6
   
   bedmap:
     doi: 10.000/ABCD
