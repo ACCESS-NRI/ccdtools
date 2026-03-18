@@ -51,16 +51,19 @@ datasets:
           no_data_value: -9999
           ignore_dirs:
             - shapeLines
+          doi: 10.5285/0f90d926-99ce-43c9-b536-0c7791d1728b
         points:
           subpath: point_data
           extension: csv
           skip_lines: 18
           no_data_value: -9999
+          doi: 10.5285/2fd95199-365e-4da1-ae26-3b6d48b3e6ac
         gridded:
           subpath: gridded_data
           extension: tif
           ignore_dirs:
             - resources
+          doi: 10.5285/fa5d606c-dc95-47ee-9016-7a82e446f2f2
       v3:
         geospatial:
           subpath: geospatial_data
@@ -68,16 +71,19 @@ datasets:
           no_data_value: -9999
           ignore_dirs:
             - shapeLines
+          doi: 10.5285/a72a50c6-a829-4e12-9f9a-5a683a1acc4a
         points:
           subpath: point_data
           extension: csv
           skip_lines: 18
           no_data_value: -9999
+          doi: 10.5285/91523ff9-d621-46b3-87f7-ffb6efcd1847
         gridded:
           subpath: gridded_data
           extension: nc
           ignore_dirs:
             - bm3_streamlines_pt
+          doi: 10.5285/2d0e4791-8e20-46a3-80e4-f5f6716025d2
 
   measures_its_live_antarctica_annual_ice_mask:
     doi: 10.000/ABCD
