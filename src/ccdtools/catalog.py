@@ -1085,16 +1085,20 @@ class DataCatalog:
         # Extract row for metadata access
         row = subset.iloc[0]
         
-        # Show DOI(s) - handle multiple rows (e.g., subdatasets)
+        # Show DOIs if there are multiple rows (subsets)
         if len(subset) > 1:
-            print("\nDOIs:")
+            print("\nDOI:")
+
             for _, row_item in subset.iterrows():
                 subdataset = row_item.get("subdataset", None)
                 doi = row_item.get("doi", None)
+
                 if subdataset:
                     print(f"  - {subdataset}: {doi}")
+
                 else:
                     print(f"  - {doi}")
+
         else:
             doi = row.get("doi", None)
             print(f"DOI: {doi}")

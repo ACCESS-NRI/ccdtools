@@ -86,7 +86,7 @@ datasets:
           doi: 10.5285/2d0e4791-8e20-46a3-80e4-f5f6716025d2
 
   measures_its_live_antarctica_annual_ice_mask:
-    doi: 10.000/ABCD
+    doi: 10.5067/9ZFX84T5GI6D
     display_name: ITS_LIVE Annual 240 m Ice Sheet Extent Mask - 1997 to 2021
     path: /g/data/av17/access-nri/cryosphere-data-pool/elevation_geometry/measures_its_live_antarctic_annual_240m_ice_sheet_extent_masks_1997_2021
     description: Annual ice sheet extent masks for Antarctica from ITS_LIVE at 240 m resolution, covering the years 1997 to 2021. Ice thickness and velocity data used to determine the presence of ice are also provided.
@@ -98,7 +98,7 @@ datasets:
     extension: nc
 
   measures_its_live_antarctic_grounded_ice_sheet_elevation_change:
-    doi: 10.000/ABCD
+    doi: 10.5067/L3LSVDZS15ZV
     display_name: ITS_LIVE Antarctic Ice Sheet grounded ice elevation change
     path: /g/data/av17/access-nri/cryosphere-data-pool/elevation_geometry/measures_its_live_antarctic_grounded_ice_sheet_elevation_change
     description: ITS_LIVE Antarctic Ice Sheet grounded ice elevation change
@@ -109,7 +109,7 @@ datasets:
     extension: nc
 
   measures_its_live_antarctic_quarterly_ice_shelf_height_change:
-    doi: 10.000/ABCD
+    doi: 10.5067/SE3XH9RXQWAM
     display_name: ITS_LIVE Antarctic Ice Shelf quarterly height change and basal melt rates - 1992 to 2017
     path: /g/data/av17/access-nri/cryosphere-data-pool/elevation_geometry/measures_its_live_antarctic_quarterly_1920m_ice_shelf_height_change_and_basal_melt_rates_1992_2017
     description: ITS_LIVE Antarctic Ice Shelf quarterly height change and basal melt rates - 1992 to 2017
@@ -124,7 +124,6 @@ datasets:
 
   # GEOSPTATIAL DATASETS
   measures_antarctic_boundaries:
-    doi: 10.000/ABCD
     display_name: Antarctic Boundaries for IPY 2007-2009 from Satellite Radar
     path: /g/data/av17/access-nri/cryosphere-data-pool/geospatial/measures_antarctic_boundaries_for_ipy_2007_2009_from_satellite_radar
     description: Antarctic coastline, grounding line, and ice front positions derived from satellite radar data for the International Polar Year 2007-2009.
@@ -135,6 +134,9 @@ datasets:
       - ice front
       - ice mask
     extension: shp
+    doi:
+      v1: 10.5067/SEVV4MR8P1ZN
+      v2: 10.5067/AXE4121732AD
     subdatasets:
       v1:
         coastline:
@@ -166,7 +168,6 @@ datasets:
           extension: tif
 
   measures_antarctic_grounding_line:
-    doi: 10.000/ABCD
     display_name: Antarctic Grounding Line from Differential Satellite Radar Interferometry
     path: /g/data/av17/access-nri/cryosphere-data-pool/geospatial/measures_antarctic_grounding_line_from_differential_satellite_radar_interferometry
     description: Grounding line positions for Antarctica derived from differential satellite radar interferometry.
@@ -176,10 +177,13 @@ datasets:
     extension:
       v1: csv
       v2: shp
+    doi:
+      v1: 10.5067/MEASURES/CRYOSPHERE/nsidc-0498.001
+      v2: 10.5067/IKBWW4RYHF1Q
 
   # BASAL FORCING DATASETS
   antarctic_geothermal_heat_flow_model_aq1:
-    doi: 10.000/ABCD
+    doi: 10.1594/PANGAEA.924857
     display_name: Antarctic Geothermal Heat Flow Model AQ1
     path: /g/data/av17/access-nri/cryosphere-data-pool/basal_forcing/antarctic_geothermal_heat_flow_model_aq1
     description: Geothermal heat flow model for Antarctica (AQ1) providing estimates of basal heat flux beneath the Antarctic ice sheet.
@@ -197,7 +201,7 @@ datasets:
   
   # ICE VELOCITY DATASETS
   measures_annual_antarctic_ice_velocity_maps:
-    doi: 10.000/ABCD
+    doi: 10.5067/9T4EPQXTJYW9
     path: /g/data/av17/access-nri/cryosphere-data-pool/ice_velocity/measures_annual_antarctic_ice_velocity_maps
     display_name: MEaSUREs Annual Antarctic Ice Velocity Maps
     description: Annual ice velocity maps for Antarctica from the MEaSUREs program, providing ice flow velocities at various resolutions.
@@ -208,7 +212,7 @@ datasets:
     loader: measures_velocity
 
   measures_insar_based_ice_velocity_maps_of_central_antarctica:
-    doi: 10.000/ABCD
+    doi: 10.5067/MEASURES/CRYOSPHERE/nsidc-0525.001
     path: /g/data/av17/access-nri/cryosphere-data-pool/ice_velocity/measures_insar_based_ice_velocity_maps_of_central_antarctica
     display_name: InSAR-based Ice Velocity Maps of Central Antarctica
     description: Ice velocity maps for central Antarctica derived from Interferometric Synthetic Aperture Radar (InSAR) data.
@@ -220,7 +224,6 @@ datasets:
     loader: measures_velocity
 
   measures_insar_based_antarctica_ice_velocity_map:
-    doi: 10.000/ABCD
     path: /g/data/av17/access-nri/cryosphere-data-pool/ice_velocity/measures_insar_based_antarctica_ice_velocity_map
     display_name: InSAR-based Antarctica Ice Velocity Map
     description: High-resolution ice velocity map for Antarctica derived from Interferometric Synthetic Aperture Radar (InSAR) data.
@@ -229,9 +232,12 @@ datasets:
       - ice velocity
       - insar
     extension: nc
+    doi:
+      v1: 10.5067/MEASURES/CRYOSPHERE/nsidc-0484.001
+      v2: 10.5067/D7GK8F5J8M8R
 
   measures_insar_based_ice_velocity_of_the_amundsen_sea_embayment:
-    doi: 10.000/ABCD
+    doi: 10.5067/MEASURES/CRYOSPHERE/nsidc-0545.001
     path: /g/data/av17/access-nri/cryosphere-data-pool/ice_velocity/measures_insar_based_ice_velocity_of_the_amundsen_sea_embayment
     display_name: InSAR-based Ice Velocity of the Amundsen Sea Embayment
     description: Ice velocity data for the Amundsen Sea Embayment region of Antarctica derived from Interferometric Synthetic Aperture Radar (InSAR) measurements.
@@ -242,7 +248,7 @@ datasets:
     extension: nc
 
   measures_phase_based_antarctica_ice_velocity_map:
-    doi: 10.000/ABCD
+    doi: 10.5067/PZ3NJ5RXRH10
     path: /g/data/av17/access-nri/cryosphere-data-pool/ice_velocity/measures_phase_based_antarctica_ice_velocity_map
     display_name: Phase-based Antarctica Ice Velocity Map
     description: High-resolution ice velocity map for Antarctica derived from phase-based measurements.
@@ -252,7 +258,6 @@ datasets:
     extension: nc
   
   measures_its_live_regional_glacier_and_ice_sheet_surface_velocities:
-    doi: 10.000/ABCD
     path: /g/data/av17/access-nri/cryosphere-data-pool/ice_velocity/measures_its_live_regional_glacier_and_ice_sheet_surface_velocities
     display_name: ITS_LIVE Regional Glacier and Ice Sheet Surface Velocities
     description: ITS_LIVE regional glacier and ice sheet surface velocities for Antarctica and Greenland.
@@ -272,6 +277,9 @@ datasets:
     static_patterns:
       v1: "_0000"
       v2: "_2014-2022_"
+    doi:
+      v1: 10.5067/6II6VW8LLWJ7
+      v2: 10.5067/JQ6337239C96
     subdatasets:
       v1:
         ANT:
@@ -346,7 +354,7 @@ datasets:
   
   # SURFACE FORCING DATASETS
   racmo2.3p2_monthly_27km_1979-2022:
-    doi: 10.000/ABCD
+    doi: 10.5281/zenodo.7845736
     path: /g/data/av17/access-nri/cryosphere-data-pool/surface_forcing/racmo2.3p2_monthly_27km_1979-2022
     display_name: RACMO2.3p2 Monthly Surface Mass Balance and Climate Data at 27 km Resolution (1979-2022)
     description: Regional Atmospheric Climate Model (RACMO) version 2.3p2 monthly surface mass balance and climate data for Antarctica at 27 km resolution, covering the years 1979 to 2022.
@@ -365,7 +373,7 @@ datasets:
         - TotIS_RACMO_ANT27_IMBIE2.nc
 
   racmo2.4p1_monthly_11km_1979-2023:
-    doi: 10.000/ABCD
+    doi: 10.5281/zenodo.14217232
     path: /g/data/av17/access-nri/cryosphere-data-pool/surface_forcing/racmo2.4p1_monthly_11km_1979-2023
     display_name: RACMO2.4p1 Monthly Surface Mass Balance and Climate Data at 11 km Resolution (1979-2023)
     description: Regional Atmospheric Climate Model (RACMO) version 2.4p1 monthly surface mass balance and climate data for Antarctica at 11 km resolution, covering the years 1979 to 2023.
