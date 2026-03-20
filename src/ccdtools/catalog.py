@@ -3,11 +3,48 @@ from pathlib import Path
 from importlib import resources
 import pandas as pd
 import warnings
+import os
+import socket
 
 from . import loaders
 
 # Ensure UserWarnings are always shown
 warnings.simplefilter('always', UserWarning)
+
+# NCI Gadi and av17 project access utilities
+def _is_on_gadi():
+    """
+    Check if running on NCI Gadi supercomputer.
+    
+    Detection is based on hostname pattern or NCI-specific environment variables.
+    
+    Returns
+    -------
+    bool
+        True if running on Gadi, False otherwise.
+    """
+    hostname = socket.gethostname()
+    # Check hostname patterns (login nodes, compute nodes)
+    if hostname.startswith('gadi') or hostname.startswith('nid'):
+        return True
+    # Check NCI-specific environment variables
+    if os.environ.get('PBS_JOBFS') is not None:
+        return True
+    if os.environ.get('PROJECT') is not None and os.path.exists('/g/data'):
+        return True
+    return False
+
+def _check_av17_access():
+    """
+    Check if /g/data/av17 is accessible (user has joined av17 project).
+    
+    Returns
+    -------
+    bool
+        True if av17 is accessible, False otherwise.
+    """
+    av17_path = Path('/g/data/av17')
+    return av17_path.exists() and os.access(av17_path, os.R_OK)
 
 class DataCatalog:
     """
@@ -85,6 +122,15 @@ class DataCatalog:
         self.config = self._load_yaml(self.config_file)
         self.datasets = self._list_datasets()
         self._df_summary = self.datasets
+        
+        # Check av17 access on Gadi
+        if _is_on_gadi() and not _check_av17_access():
+            warnings.warn(
+                "Running on Gadi but /g/data/av17 is not accessible. "
+                "You need to join NCI project 'av17' to access CCD datasets.\n"
+                "Apply at: https://my.nci.org.au/mancini/project/av17",
+                UserWarning
+            )
     
     def _repr_html_(self):
         """
@@ -472,6 +518,17 @@ class DataCatalog:
         # Convert root to Path object
         root = Path(root)
         
+        # Check if root exists; provide helpful error if av17 is inaccessible
+        if not root.exists():
+            if '/g/data/av17' in str(root) and _is_on_gadi():
+                raise FileNotFoundError(
+                    f"Path not accessible: {root}\n"
+                    "You need to join NCI project 'av17' to access CCD datasets.\n"
+                    "Apply at: https://my.nci.org.au/mancini/project/av17"
+                )
+            else:
+                raise FileNotFoundError(f"Path not found: {root}")
+        
         # Ensure provided extension does not start with dot
         ext = extension.lstrip(".")
 
@@ -705,6 +762,13 @@ class DataCatalog:
 
         # Load dataset from the single matching row
         row = subset.iloc[0]
+        
+        # Check av17 access before loading if on Gadi
+        if _is_on_gadi() and not _check_av17_access():
+            raise PermissionError(
+                "Cannot access /g/data/av17. You need to join NCI project 'av17' "
+                "to access CCD datasets.\nApply at: https://my.nci.org.au/mancini/project/av17"
+            )
 
         # Check any additional keywords against the row
         self._check_keywords(row, kwargs)
