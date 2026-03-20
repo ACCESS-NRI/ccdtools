@@ -128,6 +128,7 @@ class DataCatalog:
             warnings.warn(
                 "Running on Gadi but /g/data/av17 is not accessible. "
                 "You need to join NCI project 'av17' to access CCD datasets.\n"
+                "If running on ARE, you'll need to include the av17 project in your allocation.\n"
                 "Apply at: https://my.nci.org.au/mancini/project/av17",
                 UserWarning
             )
