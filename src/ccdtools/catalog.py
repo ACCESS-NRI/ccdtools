@@ -132,6 +132,15 @@ class DataCatalog:
         self.config = self._load_yaml(self.config_file)
         self.datasets = self._list_datasets()
         self._df_summary = self.datasets
+        
+        # Check av17 access on Gadi
+        if _is_on_gadi() and not _check_av17_access():
+            warnings.warn(
+                "Running on Gadi but /g/data/av17 is not accessible. "
+                "You need to join NCI project 'av17' to access CCD datasets.\n"
+                "Apply at: https://my.nci.org.au/mancini/project/av17",
+                UserWarning
+            )
     
     def _repr_html_(self):
         """
