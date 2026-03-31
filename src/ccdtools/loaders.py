@@ -11,6 +11,7 @@ import os
 from datetime import datetime
 import re
 import warnings
+import pathlib
 
 def default(self, row, resolution = None, static = True, **kwargs):
     """
@@ -532,4 +533,43 @@ def racmo(self, row, **kwargs):
         "for timesteps where a given variable does not have data. Users should use caution when considering\n"
         "time-varying analysis and might consider 'trimming' data to isolate all non-NaN arrays for a given variable.")
         
+    return output
+
+def davison_timeseries(self, row, **kwargs):
+
+    # Extract parameters from row
+    path, ext, skip_lines, no_data, ignore_dirs, ignore_files, loader, resolutions, static_patterns = self._extract_row_params(row)
+
+    # Normalise lists as needed
+    ignore_dirs = self._normalise_list(ignore_dirs)
+    ignore_files = self._normalise_list(ignore_files)
+        
+    # Find files
+    files = self._recursive_find_files(path, ext, ignore_dirs = ignore_dirs, ignore_files = ignore_files)
+
+    # Set low_memory option
+    low_memory = kwargs.pop("low_memory", False)
+
+    # Empty lisy to store all files
+    data_list = []
+
+    # Loop over files, read them in, append them to list, and strip ice shelf name
+    for f in files:
+        # Extract name before "-timeseries.csv"
+        name = pathlib.Path(f).stem.replace("-timeseries", "")
+        
+        data = pd.read_csv(f, skiprows = skip_lines, low_memory = low_memory, index_col = 0, **kwargs)
+        
+        # Add new column with extracted name as the first colum
+        data.insert(0, "shelf_name", name)
+        
+        data_list.append(data)
+    
+    # Concatenate all CSVs
+    output = pd.concat(data_list, ignore_index=True)
+
+    # Replace no_data values
+    if no_data is not None:
+        output = output.replace(no_data, np.nan)
+
     return output

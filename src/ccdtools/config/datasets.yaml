@@ -198,6 +198,29 @@ datasets:
           50km: "50"
     static_patterns:
       v1: "aq1_01_"
+
+  annual_ice_shelves_mass_balance:
+    doi: 10.5281/zenodo.8052519
+    display_name: Annual mass budget of Antarctic ice shelves from 1997 to 2021
+    path: /g/data/av17/admin/staging/cryosphere-data-pool/basal_forcing/ice_shelves_annaul_mass_balance_1997_2021
+    description: Sub-ice shelf basal melt rates, masks, and basal mass balance timeseries from Davison et al. 2023.
+    tags:
+      - antarctica
+      - basal melt rates
+    ignore_dirs:
+      - code
+    subdatasets:
+      v1:
+        melt_rate:
+          subpath: data/basal_melt
+          extension: tif
+        masks:
+          subpath: data/masks/merged
+          extension: shp
+        timeseries:
+          subpath: data/basal_melt/timeseries/csv_outputs
+          extension: csv
+          loader: davison_timeseries
   
   # ICE VELOCITY DATASETS
   measures_annual_antarctic_ice_velocity_maps:
