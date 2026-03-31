@@ -120,6 +120,8 @@ datasets:
       - basal melt rates
       - smb
       - ice thickness
+      - paolo 2024
+      - NSIDC 0792
     extension: nc
 
   # GEOSPTATIAL DATASETS
@@ -133,6 +135,9 @@ datasets:
       - grounding line
       - ice front
       - ice mask
+      - NSIDC 0709
+      - boundaries
+      - drainage basins
     extension: shp
     doi:
       v1: 10.5067/SEVV4MR8P1ZN
@@ -207,6 +212,7 @@ datasets:
     tags:
       - antarctica
       - basal melt rates
+      - davison 2023
     ignore_dirs:
       - code
     subdatasets:
