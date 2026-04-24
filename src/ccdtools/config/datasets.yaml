@@ -124,6 +124,26 @@ datasets:
       - NSIDC 0792
     extension: nc
 
+  rema:
+    display_name: REMA
+    path: /g/data/av17/admin/staging/cryosphere-data-pool/elevation_geometry/rema
+    description: The Reference Elevation Model of Antarctica (REMA) is a high resolution, time-stamped Digital Surface Model (DSM) of Antarctica.
+    tags:
+      - antarctica
+      - surface elevation
+      - rema
+    extension: tif
+    doi:
+      v2: 10.7910/DVN/EBW8UC
+    resolutions:
+      v2: 
+        static:
+          100m: 100m
+          500m: 500m
+          1000m: 1km
+    static_patterns:
+      v2: "rema_mosaic_"
+
   # GEOSPTATIAL DATASETS
   measures_antarctic_boundaries:
     display_name: Antarctic Boundaries for IPY 2007-2009 from Satellite Radar
@@ -207,7 +227,7 @@ datasets:
   annual_ice_shelves_mass_balance:
     doi: 10.5281/zenodo.8052519
     display_name: Annual mass budget of Antarctic ice shelves from 1997 to 2021
-    path: /g/data/av17/admin/staging/cryosphere-data-pool/basal_forcing/ice_shelves_annaul_mass_balance_1997_2021
+    path: /g/data/av17/admin/staging/cryosphere-data-pool/basal_forcing/ice_shelves_annual_mass_balance_1997_2021
     description: Sub-ice shelf basal melt rates, masks, and basal mass balance timeseries from Davison et al. 2023.
     tags:
       - antarctica
