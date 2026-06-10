@@ -6,7 +6,7 @@ Installation
 Installing via PyPI
 ------------------
 You can install **ccdtools** using PyPI, the Python package manager.
-The latest **ccdtools** release can be found on PyPI here: https://pypi.org/project/ccdtools/
+The latest **ccdtools** release can be found on PyPI here: https://pypi.org/project/access-ccdtools/
 
 To install **ccdtools** using PyPI, run the following command in your terminal:
 
