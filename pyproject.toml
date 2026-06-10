@@ -33,6 +33,9 @@ dependencies = [
 [tool.setuptools.package-data]
 ccdtools = ["config/*.yml", "config/*.yaml"]
 
+[tool.setuptools.packages.find]
+where = ["src"]
+
 [project.urls]
 Homepage = "https://github.com/ACCESS-NRI/ccdtools"
 Repository = "https://github.com/ACCESS-NRI/ccdtools"
