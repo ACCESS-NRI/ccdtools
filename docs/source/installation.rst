@@ -12,16 +12,16 @@ To install **ccdtools** using PyPI, run the following command in your terminal:
 
 .. code-block:: bash
 
-   pip install ccdtools
+   pip install access-ccdtools
 
 Installing via conda
 --------------------
 **ccdtools** can be installed using conda via the `accessnri` channel:  
-https://anaconda.org/channels/accessnri/packages/ccdtools
+https://anaconda.org/channels/accessnri/packages/access_ccdtools/overview
 
 .. code-block:: bash
 
-   conda install accessnri::ccdtools
+   conda install accessnri::access_ccdtools
 
 Installing from GitHub (development version)
 --------------------------------------------
