@@ -5,7 +5,7 @@
 # Cryosphere Community Datapool Tools (`ccdtools`)
 
 [![PyPI](https://img.shields.io/pypi/v/access-ccdtools)](https://pypi.org/project/access-ccdtools/)
-[![Conda](https://anaconda.org/accessnri/access_ccdtools/badges/version.svg)](https://anaconda.org/channels/accessnri/packages/access_ccdtools/overview)
+[![Conda](https://img.shields.io/conda/v/accessnri/ccdtools)](https://anaconda.org/channels/accessnri/packages/access_ccdtools/overview)
 [![Docs](https://app.readthedocs.org/projects/ccdtools/badge/?version=latest)](https://ccdtools.readthedocs.io/latest/)
 
 
