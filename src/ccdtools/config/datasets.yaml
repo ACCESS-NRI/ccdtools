@@ -120,7 +120,29 @@ datasets:
       - basal melt rates
       - smb
       - ice thickness
+      - paolo 2024
+      - NSIDC 0792
     extension: nc
+
+  rema:
+    display_name: REMA
+    path: /g/data/av17/admin/staging/cryosphere-data-pool/elevation_geometry/rema
+    description: The Reference Elevation Model of Antarctica (REMA) is a high resolution, time-stamped Digital Surface Model (DSM) of Antarctica.
+    tags:
+      - antarctica
+      - surface elevation
+      - rema
+    extension: tif
+    doi:
+      v2: 10.7910/DVN/EBW8UC
+    resolutions:
+      v2: 
+        static:
+          100m: 100m
+          500m: 500m
+          1000m: 1km
+    static_patterns:
+      v2: "rema_mosaic_"
 
   # GEOSPTATIAL DATASETS
   measures_antarctic_boundaries:
@@ -133,6 +155,9 @@ datasets:
       - grounding line
       - ice front
       - ice mask
+      - NSIDC 0709
+      - boundaries
+      - drainage basins
     extension: shp
     doi:
       v1: 10.5067/SEVV4MR8P1ZN
@@ -198,6 +223,30 @@ datasets:
           50km: "50"
     static_patterns:
       v1: "aq1_01_"
+
+  annual_ice_shelves_mass_balance:
+    doi: 10.5281/zenodo.8052519
+    display_name: Annual mass budget of Antarctic ice shelves from 1997 to 2021
+    path: /g/data/av17/admin/staging/cryosphere-data-pool/basal_forcing/ice_shelves_annual_mass_balance_1997_2021
+    description: Sub-ice shelf basal melt rates, masks, and basal mass balance timeseries from Davison et al. 2023.
+    tags:
+      - antarctica
+      - basal melt rates
+      - davison 2023
+    ignore_dirs:
+      - code
+    subdatasets:
+      v1:
+        melt_rate:
+          subpath: data/basal_melt
+          extension: tif
+        masks:
+          subpath: data/masks/merged
+          extension: shp
+        timeseries:
+          subpath: data/basal_melt/timeseries/csv_outputs
+          extension: csv
+          loader: davison_timeseries
   
   # ICE VELOCITY DATASETS
   measures_annual_antarctic_ice_velocity_maps:
